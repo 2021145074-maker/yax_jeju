@@ -1,0 +1,7 @@
+[console_scripts]
+lane_detection_node = my_custom_pkg.lane_detection_node:main
+mission_controller_node = my_custom_pkg.mission_controller_node:main
+obstacle_detect_node = my_custom_pkg.obstacle_detect_node:main
+tunnel_nav_node = my_custom_pkg.tunnel_nav_node:main
+waypoint_follower_node = my_custom_pkg.waypoint_follower_node:main
+

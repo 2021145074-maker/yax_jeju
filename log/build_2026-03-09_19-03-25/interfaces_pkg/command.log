@@ -1,0 +1,6 @@
+Invoking command in '/home/jsmoon/yax_jeju/build/interfaces_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/jsmoon/yax_jeju/src/interfaces_pkg -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/jsmoon/yax_jeju/install/interfaces_pkg
+Invoked command in '/home/jsmoon/yax_jeju/build/interfaces_pkg' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/jsmoon/yax_jeju/src/interfaces_pkg -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/jsmoon/yax_jeju/install/interfaces_pkg
+Invoking command in '/home/jsmoon/yax_jeju/build/interfaces_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/jsmoon/yax_jeju/build/interfaces_pkg -- -j16 -l16
+Invoked command in '/home/jsmoon/yax_jeju/build/interfaces_pkg' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/jsmoon/yax_jeju/build/interfaces_pkg -- -j16 -l16
+Invoking command in '/home/jsmoon/yax_jeju/build/interfaces_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/jsmoon/yax_jeju/build/interfaces_pkg
+Invoked command in '/home/jsmoon/yax_jeju/build/interfaces_pkg' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/jsmoon/yax_jeju/build/interfaces_pkg

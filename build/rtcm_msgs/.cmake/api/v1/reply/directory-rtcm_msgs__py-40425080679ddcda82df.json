@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "rtcm_msgs__py",
+		"source" : "/home/jsmoon/yax_jeju/build/rtcm_msgs/rtcm_msgs__py"
+	}
+}

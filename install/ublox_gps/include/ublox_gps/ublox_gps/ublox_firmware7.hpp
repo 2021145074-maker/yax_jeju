@@ -1,0 +1,1 @@
+/home/jsmoon/yax_jeju/src/RTK_GPS_NTRIP/ublox_gps/include/ublox_gps/ublox_firmware7.hpp

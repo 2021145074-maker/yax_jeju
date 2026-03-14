@@ -1,0 +1,24 @@
+[2.226s] Invoking command in '/home/jsmoon/yax_jeju/build/serial_communication_pkg': PYTHONPATH=/home/jsmoon/yax_jeju/build/serial_communication_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jsmoon/yax_jeju/install/serial_communication_pkg/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/jsmoon/yax_jeju/build/serial_communication_pkg/build --no-deps symlink_data
+[2.465s] running develop
+[2.647s] running egg_info
+[2.647s] creating serial_communication_pkg.egg-info
+[2.647s] writing serial_communication_pkg.egg-info/PKG-INFO
+[2.648s] writing dependency_links to serial_communication_pkg.egg-info/dependency_links.txt
+[2.648s] writing entry points to serial_communication_pkg.egg-info/entry_points.txt
+[2.648s] writing requirements to serial_communication_pkg.egg-info/requires.txt
+[2.648s] writing top-level names to serial_communication_pkg.egg-info/top_level.txt
+[2.648s] writing manifest file 'serial_communication_pkg.egg-info/SOURCES.txt'
+[2.650s] reading manifest file 'serial_communication_pkg.egg-info/SOURCES.txt'
+[2.650s] writing manifest file 'serial_communication_pkg.egg-info/SOURCES.txt'
+[2.692s] running build_ext
+[2.692s] Creating /home/jsmoon/yax_jeju/install/serial_communication_pkg/lib/python3.10/site-packages/serial-communication-pkg.egg-link (link to .)
+[2.692s] Installing serial_sender_node script to /home/jsmoon/yax_jeju/install/serial_communication_pkg/lib/serial_communication_pkg
+[2.693s] 
+[2.693s] Installed /home/jsmoon/yax_jeju/build/serial_communication_pkg
+[2.693s] running symlink_data
+[2.693s] creating /home/jsmoon/yax_jeju/install/serial_communication_pkg/share/ament_index
+[2.693s] creating /home/jsmoon/yax_jeju/install/serial_communication_pkg/share/ament_index/resource_index
+[2.693s] creating /home/jsmoon/yax_jeju/install/serial_communication_pkg/share/ament_index/resource_index/packages
+[2.693s] symbolically linking /home/jsmoon/yax_jeju/build/serial_communication_pkg/resource/serial_communication_pkg -> /home/jsmoon/yax_jeju/install/serial_communication_pkg/share/ament_index/resource_index/packages
+[2.693s] symbolically linking /home/jsmoon/yax_jeju/build/serial_communication_pkg/package.xml -> /home/jsmoon/yax_jeju/install/serial_communication_pkg/share/serial_communication_pkg
+[2.759s] Invoked command in '/home/jsmoon/yax_jeju/build/serial_communication_pkg' returned '0': PYTHONPATH=/home/jsmoon/yax_jeju/build/serial_communication_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jsmoon/yax_jeju/install/serial_communication_pkg/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/jsmoon/yax_jeju/build/serial_communication_pkg/build --no-deps symlink_data

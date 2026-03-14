@@ -1,0 +1,11 @@
+# generated from colcon_core/shell/template/command_prefix.sh.em
+. "/home/jsmoon/yax_jeju/install/camera_perception_pkg/share/camera_perception_pkg/package.sh"
+. "/home/jsmoon/yax_jeju/install/decision_making_pkg/share/decision_making_pkg/package.sh"
+. "/home/jsmoon/yax_jeju/install/interfaces_pkg/share/interfaces_pkg/package.sh"
+. "/home/jsmoon/yax_jeju/install/rtcm_msgs/share/rtcm_msgs/package.sh"
+. "/home/jsmoon/yax_jeju/install/serial_communication_pkg/share/serial_communication_pkg/package.sh"
+. "/home/jsmoon/yax_jeju/install/ublox_serialization/share/ublox_serialization/package.sh"
+. "/home/jsmoon/yax_jeju/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/package.sh"
+. "/home/jsmoon/yax_jeju/install/ublox_msgs/share/ublox_msgs/package.sh"
+. "/home/jsmoon/yax_jeju/install/fix2nmea/share/fix2nmea/package.sh"
+. "/home/jsmoon/yax_jeju/install/ublox_gps/share/ublox_gps/package.sh"

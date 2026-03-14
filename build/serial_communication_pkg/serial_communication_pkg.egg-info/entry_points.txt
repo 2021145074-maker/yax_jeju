@@ -1,0 +1,3 @@
+[console_scripts]
+serial_sender_node = serial_communication_pkg.serial_sender_node:main
+

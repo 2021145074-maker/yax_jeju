@@ -1,0 +1,43 @@
+[2.230s] Invoking command in '/home/jsmoon/yax_jeju/build/decision_making_pkg': PYTHONPATH=/home/jsmoon/yax_jeju/build/decision_making_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jsmoon/yax_jeju/install/decision_making_pkg/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/jsmoon/yax_jeju/build/decision_making_pkg/build --no-deps symlink_data
+[2.480s] running develop
+[2.643s] running egg_info
+[2.643s] creating decision_making_pkg.egg-info
+[2.643s] writing decision_making_pkg.egg-info/PKG-INFO
+[2.643s] writing dependency_links to decision_making_pkg.egg-info/dependency_links.txt
+[2.643s] writing entry points to decision_making_pkg.egg-info/entry_points.txt
+[2.643s] writing requirements to decision_making_pkg.egg-info/requires.txt
+[2.643s] writing top-level names to decision_making_pkg.egg-info/top_level.txt
+[2.644s] writing manifest file 'decision_making_pkg.egg-info/SOURCES.txt'
+[2.646s] reading manifest file 'decision_making_pkg.egg-info/SOURCES.txt'
+[2.646s] writing manifest file 'decision_making_pkg.egg-info/SOURCES.txt'
+[2.685s] running build_ext
+[2.686s] Creating /home/jsmoon/yax_jeju/install/decision_making_pkg/lib/python3.10/site-packages/decision-making-pkg.egg-link (link to .)
+[2.686s] Installing cmd_vel_to_motion_command script to /home/jsmoon/yax_jeju/install/decision_making_pkg/lib/decision_making_pkg
+[2.686s] Installing fake_gps_publisher script to /home/jsmoon/yax_jeju/install/decision_making_pkg/lib/decision_making_pkg
+[2.686s] Installing forward_driver_node script to /home/jsmoon/yax_jeju/install/decision_making_pkg/lib/decision_making_pkg
+[2.686s] Installing gps_goto_node script to /home/jsmoon/yax_jeju/install/decision_making_pkg/lib/decision_making_pkg
+[2.686s] Installing motion_planner_node script to /home/jsmoon/yax_jeju/install/decision_making_pkg/lib/decision_making_pkg
+[2.687s] Installing path_planner_node script to /home/jsmoon/yax_jeju/install/decision_making_pkg/lib/decision_making_pkg
+[2.687s] Installing path_planner_robust_node script to /home/jsmoon/yax_jeju/install/decision_making_pkg/lib/decision_making_pkg
+[2.687s] Installing waypoint_follower_node script to /home/jsmoon/yax_jeju/install/decision_making_pkg/lib/decision_making_pkg
+[2.687s] Installing yolov8_cone_and_yellow_node script to /home/jsmoon/yax_jeju/install/decision_making_pkg/lib/decision_making_pkg
+[2.687s] 
+[2.687s] Installed /home/jsmoon/yax_jeju/build/decision_making_pkg
+[2.687s] running symlink_data
+[2.687s] creating /home/jsmoon/yax_jeju/install/decision_making_pkg/share/ament_index
+[2.689s] creating /home/jsmoon/yax_jeju/install/decision_making_pkg/share/ament_index/resource_index
+[2.689s] creating /home/jsmoon/yax_jeju/install/decision_making_pkg/share/ament_index/resource_index/packages
+[2.689s] symbolically linking /home/jsmoon/yax_jeju/build/decision_making_pkg/resource/decision_making_pkg -> /home/jsmoon/yax_jeju/install/decision_making_pkg/share/ament_index/resource_index/packages
+[2.689s] symbolically linking /home/jsmoon/yax_jeju/build/decision_making_pkg/package.xml -> /home/jsmoon/yax_jeju/install/decision_making_pkg/share/decision_making_pkg
+[2.689s] creating /home/jsmoon/yax_jeju/install/decision_making_pkg/share/decision_making_pkg/config
+[2.689s] symbolically linking /home/jsmoon/yax_jeju/build/decision_making_pkg/config/pright.csv -> /home/jsmoon/yax_jeju/install/decision_making_pkg/share/decision_making_pkg/config
+[2.689s] symbolically linking /home/jsmoon/yax_jeju/build/decision_making_pkg/config/test2.csv -> /home/jsmoon/yax_jeju/install/decision_making_pkg/share/decision_making_pkg/config
+[2.689s] symbolically linking /home/jsmoon/yax_jeju/build/decision_making_pkg/config/waypoints_center.csv -> /home/jsmoon/yax_jeju/install/decision_making_pkg/share/decision_making_pkg/config
+[2.689s] symbolically linking /home/jsmoon/yax_jeju/build/decision_making_pkg/config/pleft.csv -> /home/jsmoon/yax_jeju/install/decision_making_pkg/share/decision_making_pkg/config
+[2.689s] symbolically linking /home/jsmoon/yax_jeju/build/decision_making_pkg/config/tleft.csv -> /home/jsmoon/yax_jeju/install/decision_making_pkg/share/decision_making_pkg/config
+[2.689s] symbolically linking /home/jsmoon/yax_jeju/build/decision_making_pkg/config/tright.csv -> /home/jsmoon/yax_jeju/install/decision_making_pkg/share/decision_making_pkg/config
+[2.689s] symbolically linking /home/jsmoon/yax_jeju/build/decision_making_pkg/config/params.yaml -> /home/jsmoon/yax_jeju/install/decision_making_pkg/share/decision_making_pkg/config
+[2.690s] symbolically linking /home/jsmoon/yax_jeju/build/decision_making_pkg/config/output (10).csv -> /home/jsmoon/yax_jeju/install/decision_making_pkg/share/decision_making_pkg/config
+[2.690s] creating /home/jsmoon/yax_jeju/install/decision_making_pkg/share/decision_making_pkg/waypoints
+[2.690s] symbolically linking /home/jsmoon/yax_jeju/build/decision_making_pkg/waypoints/demo_waypoints.yaml -> /home/jsmoon/yax_jeju/install/decision_making_pkg/share/decision_making_pkg/waypoints
+[2.762s] Invoked command in '/home/jsmoon/yax_jeju/build/decision_making_pkg' returned '0': PYTHONPATH=/home/jsmoon/yax_jeju/build/decision_making_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jsmoon/yax_jeju/install/decision_making_pkg/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/jsmoon/yax_jeju/build/decision_making_pkg/build --no-deps symlink_data

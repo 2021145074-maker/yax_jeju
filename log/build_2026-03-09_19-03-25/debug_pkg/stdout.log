@@ -1,0 +1,25 @@
+running develop
+running egg_info
+creating debug_pkg.egg-info
+writing debug_pkg.egg-info/PKG-INFO
+writing dependency_links to debug_pkg.egg-info/dependency_links.txt
+writing entry points to debug_pkg.egg-info/entry_points.txt
+writing requirements to debug_pkg.egg-info/requires.txt
+writing top-level names to debug_pkg.egg-info/top_level.txt
+writing manifest file 'debug_pkg.egg-info/SOURCES.txt'
+reading manifest file 'debug_pkg.egg-info/SOURCES.txt'
+writing manifest file 'debug_pkg.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/jsmoon/yax_jeju/install/debug_pkg/lib/python3.10/site-packages/debug-pkg.egg-link (link to .)
+Installing path_visualizer_node script to /home/jsmoon/yax_jeju/install/debug_pkg/lib/debug_pkg
+Installing steering_visualizer_node script to /home/jsmoon/yax_jeju/install/debug_pkg/lib/debug_pkg
+Installing traffic_light_visualizer_node script to /home/jsmoon/yax_jeju/install/debug_pkg/lib/debug_pkg
+Installing yolov8_visualizer_node script to /home/jsmoon/yax_jeju/install/debug_pkg/lib/debug_pkg
+
+Installed /home/jsmoon/yax_jeju/build/debug_pkg
+running symlink_data
+creating /home/jsmoon/yax_jeju/install/debug_pkg/share/ament_index
+creating /home/jsmoon/yax_jeju/install/debug_pkg/share/ament_index/resource_index
+creating /home/jsmoon/yax_jeju/install/debug_pkg/share/ament_index/resource_index/packages
+symbolically linking /home/jsmoon/yax_jeju/build/debug_pkg/resource/debug_pkg -> /home/jsmoon/yax_jeju/install/debug_pkg/share/ament_index/resource_index/packages
+symbolically linking /home/jsmoon/yax_jeju/build/debug_pkg/package.xml -> /home/jsmoon/yax_jeju/install/debug_pkg/share/debug_pkg

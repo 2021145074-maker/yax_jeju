@@ -1,0 +1,6 @@
+Invoking command in '/home/jsmoon/yax_jeju/build/rtcm_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/jsmoon/yax_jeju/src/RTK_GPS_NTRIP/rtcm_msgs -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/jsmoon/yax_jeju/install/rtcm_msgs
+Invoked command in '/home/jsmoon/yax_jeju/build/rtcm_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/jsmoon/yax_jeju/src/RTK_GPS_NTRIP/rtcm_msgs -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/jsmoon/yax_jeju/install/rtcm_msgs
+Invoking command in '/home/jsmoon/yax_jeju/build/rtcm_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/jsmoon/yax_jeju/build/rtcm_msgs -- -j16 -l16
+Invoked command in '/home/jsmoon/yax_jeju/build/rtcm_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/jsmoon/yax_jeju/build/rtcm_msgs -- -j16 -l16
+Invoking command in '/home/jsmoon/yax_jeju/build/rtcm_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/jsmoon/yax_jeju/build/rtcm_msgs
+Invoked command in '/home/jsmoon/yax_jeju/build/rtcm_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/jsmoon/yax_jeju/build/rtcm_msgs

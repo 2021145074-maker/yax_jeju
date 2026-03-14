@@ -1,0 +1,1 @@
+camera_perception_pkg;decision_making_pkg;lidar_perception_pkg;my_custom_pkg;fix2nmea;ublox_gps;ntrip_client;serial_communication_pkg;ament_lint_auto;ament_lint_common

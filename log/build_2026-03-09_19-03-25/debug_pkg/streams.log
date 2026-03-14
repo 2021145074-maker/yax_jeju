@@ -1,0 +1,27 @@
+[2.185s] Invoking command in '/home/jsmoon/yax_jeju/build/debug_pkg': PYTHONPATH=/home/jsmoon/yax_jeju/build/debug_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jsmoon/yax_jeju/install/debug_pkg/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/jsmoon/yax_jeju/build/debug_pkg/build --no-deps symlink_data
+[2.419s] running develop
+[2.612s] running egg_info
+[2.612s] creating debug_pkg.egg-info
+[2.612s] writing debug_pkg.egg-info/PKG-INFO
+[2.612s] writing dependency_links to debug_pkg.egg-info/dependency_links.txt
+[2.612s] writing entry points to debug_pkg.egg-info/entry_points.txt
+[2.613s] writing requirements to debug_pkg.egg-info/requires.txt
+[2.613s] writing top-level names to debug_pkg.egg-info/top_level.txt
+[2.613s] writing manifest file 'debug_pkg.egg-info/SOURCES.txt'
+[2.615s] reading manifest file 'debug_pkg.egg-info/SOURCES.txt'
+[2.615s] writing manifest file 'debug_pkg.egg-info/SOURCES.txt'
+[2.654s] running build_ext
+[2.655s] Creating /home/jsmoon/yax_jeju/install/debug_pkg/lib/python3.10/site-packages/debug-pkg.egg-link (link to .)
+[2.655s] Installing path_visualizer_node script to /home/jsmoon/yax_jeju/install/debug_pkg/lib/debug_pkg
+[2.655s] Installing steering_visualizer_node script to /home/jsmoon/yax_jeju/install/debug_pkg/lib/debug_pkg
+[2.655s] Installing traffic_light_visualizer_node script to /home/jsmoon/yax_jeju/install/debug_pkg/lib/debug_pkg
+[2.655s] Installing yolov8_visualizer_node script to /home/jsmoon/yax_jeju/install/debug_pkg/lib/debug_pkg
+[2.655s] 
+[2.655s] Installed /home/jsmoon/yax_jeju/build/debug_pkg
+[2.655s] running symlink_data
+[2.656s] creating /home/jsmoon/yax_jeju/install/debug_pkg/share/ament_index
+[2.656s] creating /home/jsmoon/yax_jeju/install/debug_pkg/share/ament_index/resource_index
+[2.656s] creating /home/jsmoon/yax_jeju/install/debug_pkg/share/ament_index/resource_index/packages
+[2.656s] symbolically linking /home/jsmoon/yax_jeju/build/debug_pkg/resource/debug_pkg -> /home/jsmoon/yax_jeju/install/debug_pkg/share/ament_index/resource_index/packages
+[2.656s] symbolically linking /home/jsmoon/yax_jeju/build/debug_pkg/package.xml -> /home/jsmoon/yax_jeju/install/debug_pkg/share/debug_pkg
+[2.721s] Invoked command in '/home/jsmoon/yax_jeju/build/debug_pkg' returned '0': PYTHONPATH=/home/jsmoon/yax_jeju/build/debug_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jsmoon/yax_jeju/install/debug_pkg/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/jsmoon/yax_jeju/build/debug_pkg/build --no-deps symlink_data

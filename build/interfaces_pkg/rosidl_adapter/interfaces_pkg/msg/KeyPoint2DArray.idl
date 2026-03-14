@@ -1,0 +1,15 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from interfaces_pkg/msg/KeyPoint2DArray.msg
+// generated code does not contain a copyright notice
+
+#include "interfaces_pkg/msg/KeyPoint2D.idl"
+
+module interfaces_pkg {
+  module msg {
+    @verbatim (language="comment", text=
+      "represents all the keypoints for human pose estimation")
+    struct KeyPoint2DArray {
+      sequence<interfaces_pkg::msg::KeyPoint2D> data;
+    };
+  };
+};

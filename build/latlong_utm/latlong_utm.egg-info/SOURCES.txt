@@ -1,0 +1,16 @@
+package.xml
+setup.cfg
+setup.py
+latlong_utm/__init__.py
+latlong_utm/latlon.py
+latlong_utm/latlong_to_utm.py
+latlong_utm/utm_to_latlong.py
+latlong_utm/utmpubfunc.py
+latlong_utm.egg-info/PKG-INFO
+latlong_utm.egg-info/SOURCES.txt
+latlong_utm.egg-info/dependency_links.txt
+latlong_utm.egg-info/entry_points.txt
+latlong_utm.egg-info/requires.txt
+latlong_utm.egg-info/top_level.txt
+latlong_utm.egg-info/zip-safe
+resource/latlong_utm

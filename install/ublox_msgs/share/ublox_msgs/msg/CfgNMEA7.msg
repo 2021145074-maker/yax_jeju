@@ -1,0 +1,1 @@
+/home/jsmoon/yax_jeju/src/RTK_GPS_NTRIP/ublox_msgs/msg/CfgNMEA7.msg

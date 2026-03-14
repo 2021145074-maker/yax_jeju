@@ -1,0 +1,50 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from interfaces_pkg/msg/Detection.msg
+// generated code does not contain a copyright notice
+
+#include "interfaces_pkg/msg/BoundingBox2D.idl"
+#include "interfaces_pkg/msg/BoundingBox3D.idl"
+#include "interfaces_pkg/msg/KeyPoint2DArray.idl"
+#include "interfaces_pkg/msg/KeyPoint3DArray.idl"
+#include "interfaces_pkg/msg/Mask.idl"
+
+module interfaces_pkg {
+  module msg {
+    @verbatim (language="comment", text=
+      "defines a YOLOv8 detection result")
+    struct Detection {
+      @verbatim (language="comment", text=
+        "class probability")
+      int32 class_id;
+
+      string class_name;
+
+      double score;
+
+      @verbatim (language="comment", text=
+        "ID for tracking")
+      string id;
+
+      @verbatim (language="comment", text=
+        "2D bounding box surrounding the object in pixels")
+      interfaces_pkg::msg::BoundingBox2D bbox;
+
+      @verbatim (language="comment", text=
+        "3D bounding box surrounding the object in meters")
+      interfaces_pkg::msg::BoundingBox3D bbox3d;
+
+      @verbatim (language="comment", text=
+        "segmentation mask of the detected object" "\n"
+        "it is only the boundary of the segmented object")
+      interfaces_pkg::msg::Mask mask;
+
+      @verbatim (language="comment", text=
+        "keypoints for human pose estimation")
+      interfaces_pkg::msg::KeyPoint2DArray keypoints;
+
+      @verbatim (language="comment", text=
+        "keypoints for human pose estimation")
+      interfaces_pkg::msg::KeyPoint3DArray keypoints3d;
+    };
+  };
+};

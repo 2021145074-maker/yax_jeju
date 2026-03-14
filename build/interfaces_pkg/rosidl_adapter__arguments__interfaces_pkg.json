@@ -1,0 +1,21 @@
+{
+  "package_name": "interfaces_pkg",
+  "non_idl_tuples": [
+    "/home/jsmoon/yax_jeju/src/interfaces_pkg:msg/Point2D.msg",
+    "/home/jsmoon/yax_jeju/src/interfaces_pkg:msg/Vector2.msg",
+    "/home/jsmoon/yax_jeju/src/interfaces_pkg:msg/Pose2D.msg",
+    "/home/jsmoon/yax_jeju/src/interfaces_pkg:msg/BoundingBox2D.msg",
+    "/home/jsmoon/yax_jeju/src/interfaces_pkg:msg/BoundingBox3D.msg",
+    "/home/jsmoon/yax_jeju/src/interfaces_pkg:msg/Mask.msg",
+    "/home/jsmoon/yax_jeju/src/interfaces_pkg:msg/KeyPoint2D.msg",
+    "/home/jsmoon/yax_jeju/src/interfaces_pkg:msg/KeyPoint2DArray.msg",
+    "/home/jsmoon/yax_jeju/src/interfaces_pkg:msg/KeyPoint3D.msg",
+    "/home/jsmoon/yax_jeju/src/interfaces_pkg:msg/KeyPoint3DArray.msg",
+    "/home/jsmoon/yax_jeju/src/interfaces_pkg:msg/Detection.msg",
+    "/home/jsmoon/yax_jeju/src/interfaces_pkg:msg/DetectionArray.msg",
+    "/home/jsmoon/yax_jeju/src/interfaces_pkg:msg/LaneInfo.msg",
+    "/home/jsmoon/yax_jeju/src/interfaces_pkg:msg/MotionCommand.msg",
+    "/home/jsmoon/yax_jeju/src/interfaces_pkg:msg/TargetPoint.msg",
+    "/home/jsmoon/yax_jeju/src/interfaces_pkg:msg/PathPlanningResult.msg"
+  ]
+}
