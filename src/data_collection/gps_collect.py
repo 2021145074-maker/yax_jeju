@@ -67,7 +67,7 @@ class DataCollectorNode(Node):
         super().__init__('data_collector_node')
 
         # --- CONFIGURATION ---
-        self.SAVE_FREQUENCY_HZ = 1
+        self.SAVE_FREQUENCY_HZ = 0.5
         CONTROL_SERIAL_PORT = "/dev/ttyUSB0"
         BAUD_RATE = 115200
         MAX_STEERING = 7

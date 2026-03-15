@@ -1,0 +1,46 @@
+[0.775s] Invoking command in '/home/jsmoon/yax_jeju/build/ydlidar_ros2_driver': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jsmoon/yax_jeju/install/my_custom_pkg:/home/jsmoon/yax_jeju/install/serial_communication_pkg:/home/jsmoon/yax_jeju/install/ntrip_client:/home/jsmoon/yax_jeju/install/lidar_perception_pkg:/home/jsmoon/yax_jeju/install/latlong_utm:/home/jsmoon/yax_jeju/install/decision_making_pkg:/home/jsmoon/yax_jeju/install/debug_pkg:/home/jsmoon/yax_jeju/install/camera_perception_pkg:/opt/ros/humble /usr/bin/cmake --build /home/jsmoon/yax_jeju/build/ydlidar_ros2_driver -- -j16 -l16
+[1.588s] [ 50%] Built target ydlidar_ros2_driver_node
+[1.588s] [100%] Built target ydlidar_ros2_driver_client
+[1.603s] Invoked command in '/home/jsmoon/yax_jeju/build/ydlidar_ros2_driver' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jsmoon/yax_jeju/install/my_custom_pkg:/home/jsmoon/yax_jeju/install/serial_communication_pkg:/home/jsmoon/yax_jeju/install/ntrip_client:/home/jsmoon/yax_jeju/install/lidar_perception_pkg:/home/jsmoon/yax_jeju/install/latlong_utm:/home/jsmoon/yax_jeju/install/decision_making_pkg:/home/jsmoon/yax_jeju/install/debug_pkg:/home/jsmoon/yax_jeju/install/camera_perception_pkg:/opt/ros/humble /usr/bin/cmake --build /home/jsmoon/yax_jeju/build/ydlidar_ros2_driver -- -j16 -l16
+[1.604s] Invoking command in '/home/jsmoon/yax_jeju/build/ydlidar_ros2_driver': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jsmoon/yax_jeju/install/my_custom_pkg:/home/jsmoon/yax_jeju/install/serial_communication_pkg:/home/jsmoon/yax_jeju/install/ntrip_client:/home/jsmoon/yax_jeju/install/lidar_perception_pkg:/home/jsmoon/yax_jeju/install/latlong_utm:/home/jsmoon/yax_jeju/install/decision_making_pkg:/home/jsmoon/yax_jeju/install/debug_pkg:/home/jsmoon/yax_jeju/install/camera_perception_pkg:/opt/ros/humble /usr/bin/cmake --install /home/jsmoon/yax_jeju/build/ydlidar_ros2_driver
+[1.623s] -- Install configuration: ""
+[1.623s] -- Execute custom install script
+[1.623s] -- Up-to-date symlink: /home/jsmoon/yax_jeju/install/ydlidar_ros2_driver/lib/ydlidar_ros2_driver/ydlidar_ros2_driver_node
+[1.623s] -- Up-to-date symlink: /home/jsmoon/yax_jeju/install/ydlidar_ros2_driver/lib/ydlidar_ros2_driver/ydlidar_ros2_driver_client
+[1.623s] -- Up-to-date symlink: /home/jsmoon/yax_jeju/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/launch/ydlidar.py
+[1.623s] -- Up-to-date symlink: /home/jsmoon/yax_jeju/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/launch/ydlidar_launch.py
+[1.623s] -- Up-to-date symlink: /home/jsmoon/yax_jeju/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/launch/ydlidar_launch_view.py
+[1.623s] -- Up-to-date symlink: /home/jsmoon/yax_jeju/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/params/G1.yaml
+[1.623s] -- Up-to-date symlink: /home/jsmoon/yax_jeju/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/params/G2.yaml
+[1.623s] -- Up-to-date symlink: /home/jsmoon/yax_jeju/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/params/G4.yaml
+[1.624s] -- Up-to-date symlink: /home/jsmoon/yax_jeju/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/params/G6.yaml
+[1.624s] -- Up-to-date symlink: /home/jsmoon/yax_jeju/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/params/GS2.yaml
+[1.625s] -- Up-to-date symlink: /home/jsmoon/yax_jeju/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/params/GS5.yaml
+[1.625s] -- Up-to-date symlink: /home/jsmoon/yax_jeju/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/params/TEA.yaml
+[1.625s] -- Up-to-date symlink: /home/jsmoon/yax_jeju/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/params/TG.yaml
+[1.625s] -- Up-to-date symlink: /home/jsmoon/yax_jeju/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/params/Tmini-Plus-SH.yaml
+[1.625s] -- Up-to-date symlink: /home/jsmoon/yax_jeju/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/params/Tmini.yaml
+[1.625s] -- Up-to-date symlink: /home/jsmoon/yax_jeju/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/params/X2.yaml
+[1.625s] -- Up-to-date symlink: /home/jsmoon/yax_jeju/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/params/X3.yaml
+[1.625s] -- Up-to-date symlink: /home/jsmoon/yax_jeju/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/params/X4-Pro.yaml
+[1.625s] -- Up-to-date symlink: /home/jsmoon/yax_jeju/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/params/X4.yaml
+[1.625s] -- Up-to-date symlink: /home/jsmoon/yax_jeju/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/params/sdm15.yaml
+[1.625s] -- Up-to-date symlink: /home/jsmoon/yax_jeju/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/params/ydlidar.yaml
+[1.625s] -- Up-to-date symlink: /home/jsmoon/yax_jeju/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/startup/initenv.sh
+[1.625s] -- Up-to-date symlink: /home/jsmoon/yax_jeju/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/config/ydlidar.rviz
+[1.626s] -- Up-to-date symlink: /home/jsmoon/yax_jeju/install/ydlidar_ros2_driver/share/ament_index/resource_index/package_run_dependencies/ydlidar_ros2_driver
+[1.626s] -- Up-to-date symlink: /home/jsmoon/yax_jeju/install/ydlidar_ros2_driver/share/ament_index/resource_index/parent_prefix_path/ydlidar_ros2_driver
+[1.626s] -- Up-to-date symlink: /home/jsmoon/yax_jeju/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/environment/ament_prefix_path.sh
+[1.626s] -- Up-to-date symlink: /home/jsmoon/yax_jeju/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/environment/ament_prefix_path.dsv
+[1.626s] -- Up-to-date symlink: /home/jsmoon/yax_jeju/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/environment/path.sh
+[1.626s] -- Up-to-date symlink: /home/jsmoon/yax_jeju/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/environment/path.dsv
+[1.626s] -- Up-to-date symlink: /home/jsmoon/yax_jeju/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/local_setup.bash
+[1.626s] -- Up-to-date symlink: /home/jsmoon/yax_jeju/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/local_setup.sh
+[1.626s] -- Up-to-date symlink: /home/jsmoon/yax_jeju/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/local_setup.zsh
+[1.626s] -- Up-to-date symlink: /home/jsmoon/yax_jeju/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/local_setup.dsv
+[1.626s] -- Symlinking: /home/jsmoon/yax_jeju/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/package.dsv
+[1.635s] -- Up-to-date symlink: /home/jsmoon/yax_jeju/install/ydlidar_ros2_driver/share/ament_index/resource_index/packages/ydlidar_ros2_driver
+[1.635s] -- Up-to-date symlink: /home/jsmoon/yax_jeju/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/cmake/ydlidar_ros2_driverConfig.cmake
+[1.648s] -- Up-to-date symlink: /home/jsmoon/yax_jeju/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/cmake/ydlidar_ros2_driverConfig-version.cmake
+[1.669s] -- Up-to-date symlink: /home/jsmoon/yax_jeju/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/package.xml
+[1.670s] Invoked command in '/home/jsmoon/yax_jeju/build/ydlidar_ros2_driver' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jsmoon/yax_jeju/install/my_custom_pkg:/home/jsmoon/yax_jeju/install/serial_communication_pkg:/home/jsmoon/yax_jeju/install/ntrip_client:/home/jsmoon/yax_jeju/install/lidar_perception_pkg:/home/jsmoon/yax_jeju/install/latlong_utm:/home/jsmoon/yax_jeju/install/decision_making_pkg:/home/jsmoon/yax_jeju/install/debug_pkg:/home/jsmoon/yax_jeju/install/camera_perception_pkg:/opt/ros/humble /usr/bin/cmake --install /home/jsmoon/yax_jeju/build/ydlidar_ros2_driver

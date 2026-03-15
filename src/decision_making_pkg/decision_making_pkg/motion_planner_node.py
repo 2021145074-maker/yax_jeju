@@ -109,8 +109,8 @@ class MotionPlanningNode(Node):
 
         # 경로 추종 로직
         if self.path_data is not None and len(self.path_data) >= 2:
-            car_center_x = 269
-            car_center_y = 440
+            car_center_x = 320
+            car_center_y = 180
             
             goal_point = None
             for point in reversed(self.path_data):
@@ -130,9 +130,9 @@ class MotionPlanningNode(Node):
             self.goal_point_publisher.publish(goal_point_msg)
 
             alpha = math.atan2(goal_point[0] - car_center_x, car_center_y - goal_point[1])
-            
+
             self.pid_controller.setpoint = 0.0
-            target_steering = self.pid_controller.update(-alpha)
+            target_steering = self.pid_controller.update(-alpha, self.timer_period)
             
             max_steer = 7.0
             target_steering = np.clip(target_steering, -max_steer, max_steer)

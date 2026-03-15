@@ -1,0 +1,25 @@
+[2.663s] Invoking command in '/home/jsmoon/yax_jeju/build/decision_making_pkg': PYTHONPATH=/home/jsmoon/yax_jeju/build/decision_making_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jsmoon/yax_jeju/install/decision_making_pkg/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/jsmoon/yax_jeju/build/decision_making_pkg/build --no-deps symlink_data
+[2.925s] running develop
+[3.137s] running egg_info
+[3.137s] writing decision_making_pkg.egg-info/PKG-INFO
+[3.138s] writing dependency_links to decision_making_pkg.egg-info/dependency_links.txt
+[3.138s] writing entry points to decision_making_pkg.egg-info/entry_points.txt
+[3.138s] writing requirements to decision_making_pkg.egg-info/requires.txt
+[3.138s] writing top-level names to decision_making_pkg.egg-info/top_level.txt
+[3.141s] reading manifest file 'decision_making_pkg.egg-info/SOURCES.txt'
+[3.142s] writing manifest file 'decision_making_pkg.egg-info/SOURCES.txt'
+[3.183s] running build_ext
+[3.183s] Creating /home/jsmoon/yax_jeju/install/decision_making_pkg/lib/python3.10/site-packages/decision-making-pkg.egg-link (link to .)
+[3.183s] Installing cmd_vel_to_motion_command script to /home/jsmoon/yax_jeju/install/decision_making_pkg/lib/decision_making_pkg
+[3.184s] Installing fake_gps_publisher script to /home/jsmoon/yax_jeju/install/decision_making_pkg/lib/decision_making_pkg
+[3.184s] Installing forward_driver_node script to /home/jsmoon/yax_jeju/install/decision_making_pkg/lib/decision_making_pkg
+[3.184s] Installing gps_goto_node script to /home/jsmoon/yax_jeju/install/decision_making_pkg/lib/decision_making_pkg
+[3.184s] Installing motion_planner_node script to /home/jsmoon/yax_jeju/install/decision_making_pkg/lib/decision_making_pkg
+[3.184s] Installing path_planner_node script to /home/jsmoon/yax_jeju/install/decision_making_pkg/lib/decision_making_pkg
+[3.184s] Installing path_planner_robust_node script to /home/jsmoon/yax_jeju/install/decision_making_pkg/lib/decision_making_pkg
+[3.184s] Installing waypoint_follower_node script to /home/jsmoon/yax_jeju/install/decision_making_pkg/lib/decision_making_pkg
+[3.184s] Installing yolov8_cone_and_yellow_node script to /home/jsmoon/yax_jeju/install/decision_making_pkg/lib/decision_making_pkg
+[3.185s] 
+[3.185s] Installed /home/jsmoon/yax_jeju/build/decision_making_pkg
+[3.185s] running symlink_data
+[3.256s] Invoked command in '/home/jsmoon/yax_jeju/build/decision_making_pkg' returned '0': PYTHONPATH=/home/jsmoon/yax_jeju/build/decision_making_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jsmoon/yax_jeju/install/decision_making_pkg/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/jsmoon/yax_jeju/build/decision_making_pkg/build --no-deps symlink_data

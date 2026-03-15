@@ -87,7 +87,7 @@ class Yolov8InfoExtractor(Node):
         target_points = []
         for target_point_y in range(5, 155, 50):  # 예시로 5에서 155까지 50씩 증가
             target_point_x = CPFL.get_lane_center(roi_image, detection_height=target_point_y, 
-                                                detection_thickness=10, road_gradient=grad, lane_width=300)
+                                                detection_thickness=10, road_gradient=grad, lane_width=200)
             
             target_point = TargetPoint()
             target_point.target_x = round(target_point_x)

@@ -1,0 +1,22 @@
+/usr/lib/python3/dist-packages/setuptools/dist.py:723: UserWarning: Usage of dash-separated 'script-dir' will not be supported in future versions. Please use the underscore name 'script_dir' instead
+  warnings.warn(
+running develop
+/usr/lib/python3/dist-packages/setuptools/command/easy_install.py:355: UserWarning: Unbuilt egg for ntrip-client 1.2.0 (/home/jsmoon/yax_jeju/build/ntrip_client/src)
+  self.local_index = Environment(self.shadow_path + sys.path)
+running egg_info
+writing latlong_utm.egg-info/PKG-INFO
+writing dependency_links to latlong_utm.egg-info/dependency_links.txt
+writing entry points to latlong_utm.egg-info/entry_points.txt
+writing requirements to latlong_utm.egg-info/requires.txt
+writing top-level names to latlong_utm.egg-info/top_level.txt
+reading manifest file 'latlong_utm.egg-info/SOURCES.txt'
+writing manifest file 'latlong_utm.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/jsmoon/yax_jeju/install/latlong_utm/lib/python3.10/site-packages/latlong-utm.egg-link (link to .)
+Installing latlonpub script to /home/jsmoon/yax_jeju/install/latlong_utm/lib/latlong_utm
+Installing lattoutm script to /home/jsmoon/yax_jeju/install/latlong_utm/lib/latlong_utm
+Installing utmpub script to /home/jsmoon/yax_jeju/install/latlong_utm/lib/latlong_utm
+Installing utmtolat script to /home/jsmoon/yax_jeju/install/latlong_utm/lib/latlong_utm
+
+Installed /home/jsmoon/yax_jeju/build/latlong_utm
+running symlink_data

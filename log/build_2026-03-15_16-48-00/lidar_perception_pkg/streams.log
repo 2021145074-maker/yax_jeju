@@ -1,0 +1,19 @@
+[2.866s] Invoking command in '/home/jsmoon/yax_jeju/build/lidar_perception_pkg': PYTHONPATH=/home/jsmoon/yax_jeju/build/lidar_perception_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jsmoon/yax_jeju/install/lidar_perception_pkg/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/jsmoon/yax_jeju/build/lidar_perception_pkg/build --no-deps symlink_data
+[3.157s] running develop
+[3.328s] running egg_info
+[3.328s] writing lidar_perception_pkg.egg-info/PKG-INFO
+[3.328s] writing dependency_links to lidar_perception_pkg.egg-info/dependency_links.txt
+[3.328s] writing entry points to lidar_perception_pkg.egg-info/entry_points.txt
+[3.328s] writing requirements to lidar_perception_pkg.egg-info/requires.txt
+[3.328s] writing top-level names to lidar_perception_pkg.egg-info/top_level.txt
+[3.330s] reading manifest file 'lidar_perception_pkg.egg-info/SOURCES.txt'
+[3.331s] writing manifest file 'lidar_perception_pkg.egg-info/SOURCES.txt'
+[3.367s] running build_ext
+[3.367s] Creating /home/jsmoon/yax_jeju/install/lidar_perception_pkg/lib/python3.10/site-packages/lidar-perception-pkg.egg-link (link to .)
+[3.367s] Installing lidar_obstacle_detector_node script to /home/jsmoon/yax_jeju/install/lidar_perception_pkg/lib/lidar_perception_pkg
+[3.367s] Installing lidar_processor_node script to /home/jsmoon/yax_jeju/install/lidar_perception_pkg/lib/lidar_perception_pkg
+[3.367s] Installing lidar_publisher_node script to /home/jsmoon/yax_jeju/install/lidar_perception_pkg/lib/lidar_perception_pkg
+[3.367s] 
+[3.367s] Installed /home/jsmoon/yax_jeju/build/lidar_perception_pkg
+[3.367s] running symlink_data
+[3.424s] Invoked command in '/home/jsmoon/yax_jeju/build/lidar_perception_pkg' returned '0': PYTHONPATH=/home/jsmoon/yax_jeju/build/lidar_perception_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jsmoon/yax_jeju/install/lidar_perception_pkg/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/jsmoon/yax_jeju/build/lidar_perception_pkg/build --no-deps symlink_data

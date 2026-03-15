@@ -66,7 +66,7 @@ def generate_launch_description():
         Node(
             package='decision_making_pkg',
             # --- This is the only change ---
-            executable='path_planner_robust_node',
+            executable='path_planner_node',
             name='path_planner_node',
             output='screen'
         ),

@@ -1,0 +1,16 @@
+[2.633s] Invoking command in '/home/jsmoon/yax_jeju/build/ntrip_client': PYTHONPATH=/home/jsmoon/yax_jeju/build/ntrip_client/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jsmoon/yax_jeju/install/ntrip_client/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/jsmoon/yax_jeju/build/ntrip_client/build --no-deps symlink_data
+[2.901s] running develop
+[3.043s] running egg_info
+[3.044s] writing src/ntrip_client.egg-info/PKG-INFO
+[3.044s] writing dependency_links to src/ntrip_client.egg-info/dependency_links.txt
+[3.044s] writing requirements to src/ntrip_client.egg-info/requires.txt
+[3.044s] writing top-level names to src/ntrip_client.egg-info/top_level.txt
+[3.046s] reading manifest file 'src/ntrip_client.egg-info/SOURCES.txt'
+[3.046s] writing manifest file 'src/ntrip_client.egg-info/SOURCES.txt'
+[3.078s] running build_ext
+[3.078s] Creating /home/jsmoon/yax_jeju/install/ntrip_client/lib/python3.10/site-packages/ntrip-client.egg-link (link to src)
+[3.079s] Installing ntrip_ros.py script to /home/jsmoon/yax_jeju/install/ntrip_client/lib/ntrip_client
+[3.079s] 
+[3.080s] Installed /home/jsmoon/yax_jeju/build/ntrip_client/src
+[3.080s] running symlink_data
+[3.128s] Invoked command in '/home/jsmoon/yax_jeju/build/ntrip_client' returned '0': PYTHONPATH=/home/jsmoon/yax_jeju/build/ntrip_client/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jsmoon/yax_jeju/install/ntrip_client/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/jsmoon/yax_jeju/build/ntrip_client/build --no-deps symlink_data

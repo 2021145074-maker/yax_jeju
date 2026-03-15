@@ -1,0 +1,27 @@
+-- Install configuration: ""
+-- Execute custom install script
+-- Up-to-date symlink: /home/jsmoon/yax_jeju/install/launch_pkg/share/launch_pkg/launch/2026ev_launch.py
+-- Up-to-date symlink: /home/jsmoon/yax_jeju/install/launch_pkg/share/launch_pkg/launch/full_launch.py
+-- Up-to-date symlink: /home/jsmoon/yax_jeju/install/launch_pkg/share/launch_pkg/launch/full_launch12.py
+-- Up-to-date symlink: /home/jsmoon/yax_jeju/install/launch_pkg/share/launch_pkg/launch/gps_visualize.launch.py
+-- Up-to-date symlink: /home/jsmoon/yax_jeju/install/launch_pkg/share/launch_pkg/launch/hs.py
+-- Up-to-date symlink: /home/jsmoon/yax_jeju/install/launch_pkg/share/launch_pkg/launch/main.launch.py
+-- Up-to-date symlink: /home/jsmoon/yax_jeju/install/launch_pkg/share/launch_pkg/launch/main_merged_lane.py
+-- Up-to-date symlink: /home/jsmoon/yax_jeju/install/launch_pkg/share/launch_pkg/launch/main_original.py
+-- Up-to-date symlink: /home/jsmoon/yax_jeju/install/launch_pkg/share/launch_pkg/launch/main_robust.py
+-- Up-to-date symlink: /home/jsmoon/yax_jeju/install/launch_pkg/share/launch_pkg/launch/video_lane_detection.py
+-- Up-to-date symlink: /home/jsmoon/yax_jeju/install/launch_pkg/share/ament_index/resource_index/package_run_dependencies/launch_pkg
+-- Up-to-date symlink: /home/jsmoon/yax_jeju/install/launch_pkg/share/ament_index/resource_index/parent_prefix_path/launch_pkg
+-- Up-to-date symlink: /home/jsmoon/yax_jeju/install/launch_pkg/share/launch_pkg/environment/ament_prefix_path.sh
+-- Up-to-date symlink: /home/jsmoon/yax_jeju/install/launch_pkg/share/launch_pkg/environment/ament_prefix_path.dsv
+-- Up-to-date symlink: /home/jsmoon/yax_jeju/install/launch_pkg/share/launch_pkg/environment/path.sh
+-- Up-to-date symlink: /home/jsmoon/yax_jeju/install/launch_pkg/share/launch_pkg/environment/path.dsv
+-- Up-to-date symlink: /home/jsmoon/yax_jeju/install/launch_pkg/share/launch_pkg/local_setup.bash
+-- Up-to-date symlink: /home/jsmoon/yax_jeju/install/launch_pkg/share/launch_pkg/local_setup.sh
+-- Up-to-date symlink: /home/jsmoon/yax_jeju/install/launch_pkg/share/launch_pkg/local_setup.zsh
+-- Up-to-date symlink: /home/jsmoon/yax_jeju/install/launch_pkg/share/launch_pkg/local_setup.dsv
+-- Symlinking: /home/jsmoon/yax_jeju/install/launch_pkg/share/launch_pkg/package.dsv
+-- Up-to-date symlink: /home/jsmoon/yax_jeju/install/launch_pkg/share/ament_index/resource_index/packages/launch_pkg
+-- Up-to-date symlink: /home/jsmoon/yax_jeju/install/launch_pkg/share/launch_pkg/cmake/launch_pkgConfig.cmake
+-- Up-to-date symlink: /home/jsmoon/yax_jeju/install/launch_pkg/share/launch_pkg/cmake/launch_pkgConfig-version.cmake
+-- Up-to-date symlink: /home/jsmoon/yax_jeju/install/launch_pkg/share/launch_pkg/package.xml

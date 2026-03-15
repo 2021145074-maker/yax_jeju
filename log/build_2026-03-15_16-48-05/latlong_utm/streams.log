@@ -1,0 +1,22 @@
+[2.000s] Invoking command in '/home/jsmoon/yax_jeju/build/latlong_utm': PYTHONPATH=/home/jsmoon/yax_jeju/build/latlong_utm/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jsmoon/yax_jeju/install/latlong_utm/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/jsmoon/yax_jeju/build/latlong_utm/build --no-deps symlink_data
+[2.203s] /usr/lib/python3/dist-packages/setuptools/dist.py:723: UserWarning: Usage of dash-separated 'script-dir' will not be supported in future versions. Please use the underscore name 'script_dir' instead
+[2.203s]   warnings.warn(
+[2.227s] running develop
+[2.412s] running egg_info
+[2.412s] writing latlong_utm.egg-info/PKG-INFO
+[2.413s] writing dependency_links to latlong_utm.egg-info/dependency_links.txt
+[2.413s] writing entry points to latlong_utm.egg-info/entry_points.txt
+[2.413s] writing requirements to latlong_utm.egg-info/requires.txt
+[2.413s] writing top-level names to latlong_utm.egg-info/top_level.txt
+[2.414s] reading manifest file 'latlong_utm.egg-info/SOURCES.txt'
+[2.415s] writing manifest file 'latlong_utm.egg-info/SOURCES.txt'
+[2.457s] running build_ext
+[2.457s] Creating /home/jsmoon/yax_jeju/install/latlong_utm/lib/python3.10/site-packages/latlong-utm.egg-link (link to .)
+[2.458s] Installing latlonpub script to /home/jsmoon/yax_jeju/install/latlong_utm/lib/latlong_utm
+[2.458s] Installing lattoutm script to /home/jsmoon/yax_jeju/install/latlong_utm/lib/latlong_utm
+[2.458s] Installing utmpub script to /home/jsmoon/yax_jeju/install/latlong_utm/lib/latlong_utm
+[2.458s] Installing utmtolat script to /home/jsmoon/yax_jeju/install/latlong_utm/lib/latlong_utm
+[2.458s] 
+[2.459s] Installed /home/jsmoon/yax_jeju/build/latlong_utm
+[2.459s] running symlink_data
+[2.516s] Invoked command in '/home/jsmoon/yax_jeju/build/latlong_utm' returned '0': PYTHONPATH=/home/jsmoon/yax_jeju/build/latlong_utm/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jsmoon/yax_jeju/install/latlong_utm/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/jsmoon/yax_jeju/build/latlong_utm/build --no-deps symlink_data

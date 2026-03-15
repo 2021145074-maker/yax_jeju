@@ -1,0 +1,17 @@
+[2.040s] Invoking command in '/home/jsmoon/yax_jeju/build/serial_communication_pkg': PYTHONPATH=/home/jsmoon/yax_jeju/build/serial_communication_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jsmoon/yax_jeju/install/serial_communication_pkg/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/jsmoon/yax_jeju/build/serial_communication_pkg/build --no-deps symlink_data
+[2.277s] running develop
+[2.468s] running egg_info
+[2.468s] writing serial_communication_pkg.egg-info/PKG-INFO
+[2.468s] writing dependency_links to serial_communication_pkg.egg-info/dependency_links.txt
+[2.468s] writing entry points to serial_communication_pkg.egg-info/entry_points.txt
+[2.468s] writing requirements to serial_communication_pkg.egg-info/requires.txt
+[2.469s] writing top-level names to serial_communication_pkg.egg-info/top_level.txt
+[2.470s] reading manifest file 'serial_communication_pkg.egg-info/SOURCES.txt'
+[2.471s] writing manifest file 'serial_communication_pkg.egg-info/SOURCES.txt'
+[2.535s] running build_ext
+[2.535s] Creating /home/jsmoon/yax_jeju/install/serial_communication_pkg/lib/python3.10/site-packages/serial-communication-pkg.egg-link (link to .)
+[2.535s] Installing serial_sender_node script to /home/jsmoon/yax_jeju/install/serial_communication_pkg/lib/serial_communication_pkg
+[2.535s] 
+[2.535s] Installed /home/jsmoon/yax_jeju/build/serial_communication_pkg
+[2.535s] running symlink_data
+[2.572s] Invoked command in '/home/jsmoon/yax_jeju/build/serial_communication_pkg' returned '0': PYTHONPATH=/home/jsmoon/yax_jeju/build/serial_communication_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jsmoon/yax_jeju/install/serial_communication_pkg/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/jsmoon/yax_jeju/build/serial_communication_pkg/build --no-deps symlink_data

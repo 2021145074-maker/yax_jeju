@@ -1,0 +1,24 @@
+[2.736s] Invoking command in '/home/jsmoon/yax_jeju/build/latlong_utm': PYTHONPATH=/home/jsmoon/yax_jeju/build/latlong_utm/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jsmoon/yax_jeju/install/latlong_utm/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/jsmoon/yax_jeju/build/latlong_utm/build --no-deps symlink_data
+[2.934s] /usr/lib/python3/dist-packages/setuptools/dist.py:723: UserWarning: Usage of dash-separated 'script-dir' will not be supported in future versions. Please use the underscore name 'script_dir' instead
+[2.934s]   warnings.warn(
+[2.962s] running develop
+[3.036s] /usr/lib/python3/dist-packages/setuptools/command/easy_install.py:355: UserWarning: Unbuilt egg for ntrip-client 1.2.0 (/home/jsmoon/yax_jeju/build/ntrip_client/src)
+[3.036s]   self.local_index = Environment(self.shadow_path + sys.path)
+[3.138s] running egg_info
+[3.138s] writing latlong_utm.egg-info/PKG-INFO
+[3.138s] writing dependency_links to latlong_utm.egg-info/dependency_links.txt
+[3.138s] writing entry points to latlong_utm.egg-info/entry_points.txt
+[3.138s] writing requirements to latlong_utm.egg-info/requires.txt
+[3.139s] writing top-level names to latlong_utm.egg-info/top_level.txt
+[3.141s] reading manifest file 'latlong_utm.egg-info/SOURCES.txt'
+[3.141s] writing manifest file 'latlong_utm.egg-info/SOURCES.txt'
+[3.176s] running build_ext
+[3.176s] Creating /home/jsmoon/yax_jeju/install/latlong_utm/lib/python3.10/site-packages/latlong-utm.egg-link (link to .)
+[3.177s] Installing latlonpub script to /home/jsmoon/yax_jeju/install/latlong_utm/lib/latlong_utm
+[3.177s] Installing lattoutm script to /home/jsmoon/yax_jeju/install/latlong_utm/lib/latlong_utm
+[3.177s] Installing utmpub script to /home/jsmoon/yax_jeju/install/latlong_utm/lib/latlong_utm
+[3.177s] Installing utmtolat script to /home/jsmoon/yax_jeju/install/latlong_utm/lib/latlong_utm
+[3.178s] 
+[3.178s] Installed /home/jsmoon/yax_jeju/build/latlong_utm
+[3.178s] running symlink_data
+[3.232s] Invoked command in '/home/jsmoon/yax_jeju/build/latlong_utm' returned '0': PYTHONPATH=/home/jsmoon/yax_jeju/build/latlong_utm/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jsmoon/yax_jeju/install/latlong_utm/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/jsmoon/yax_jeju/build/latlong_utm/build --no-deps symlink_data

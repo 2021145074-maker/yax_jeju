@@ -16,7 +16,7 @@ def generate_launch_description():
 
     cutting_edge = DeclareLaunchArgument( # action을 의미, 실제로 저 값이 만들어지는 건 LaunchConfiguration 속에서 만들어짐
         'cutting_idx',
-        default_value='100',
+        default_value='300',
         description='roi_image cutting edge'
     )
     image_publisher_node = Node(

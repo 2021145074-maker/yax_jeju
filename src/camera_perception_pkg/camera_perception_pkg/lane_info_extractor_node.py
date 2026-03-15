@@ -36,7 +36,7 @@ class Yolov8InfoExtractor(Node):
         self.show_image = self.declare_parameter('show_image', SHOW_IMAGE).value
         # Add a parameter for the camera number
         self.cam_num = self.declare_parameter('cam_num', 2).value
-        self.cutting_idx = self.declare_parameter('cutting_idx',100).value
+        self.cutting_idx = self.declare_parameter('cutting_idx',300).value
         self.cv_bridge = CvBridge()
         self.point_history = deque(maxlen=50)
 
@@ -62,7 +62,7 @@ class Yolov8InfoExtractor(Node):
 
         (h, w) = (lane_edge_image.shape[0], lane_edge_image.shape[1]) #(480, 640)
         dst_mat = [[round(w * 0.3), round(h * 0.0)], [round(w * 0.7), round(h * 0.0)], [round(w * 0.7), h], [round(w * 0.3), h]]
-        src_mat = [[202, 290],[362, 250], [470, 420], [60, 415]]
+        src_mat = [[238, 316],[402, 313], [501, 476], [155, 476]]
         
         lane_bird_image = CPFL.bird_convert(lane_edge_image, srcmat=src_mat, dstmat=dst_mat)
         roi_image = CPFL.roi_rectangle_below(lane_bird_image, self.cutting_idx) ###여기 수정
@@ -90,7 +90,7 @@ class Yolov8InfoExtractor(Node):
         target_points = []
         for target_point_y in range(5, 155, 50):  # 예시로 5에서 155까지 50씩 증가
             target_point_x = CPFL.get_lane_center(roi_image, detection_height=target_point_y,
-                                                detection_thickness=10, road_gradient=grad, lane_width=250)
+                                                detection_thickness=10, road_gradient=grad, lane_width=200)
             
             target_point = TargetPoint()
             target_point.target_x = round(target_point_x)

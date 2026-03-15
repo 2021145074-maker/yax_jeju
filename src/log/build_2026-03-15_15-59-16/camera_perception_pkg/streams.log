@@ -1,0 +1,85 @@
+[0.562s] Invoking command in '/home/jsmoon/yax_jeju/src/camera_perception_pkg': PYTHONPATH=/home/jsmoon/yax_jeju/src/build/camera_perception_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/camera_perception_pkg build --build-base /home/jsmoon/yax_jeju/src/build/camera_perception_pkg/build install --record /home/jsmoon/yax_jeju/src/build/camera_perception_pkg/install.log --single-version-externally-managed install_data
+[0.738s] running egg_info
+[0.738s] creating ../build/camera_perception_pkg/camera_perception_pkg.egg-info
+[0.739s] writing ../build/camera_perception_pkg/camera_perception_pkg.egg-info/PKG-INFO
+[0.739s] writing dependency_links to ../build/camera_perception_pkg/camera_perception_pkg.egg-info/dependency_links.txt
+[0.739s] writing entry points to ../build/camera_perception_pkg/camera_perception_pkg.egg-info/entry_points.txt
+[0.739s] writing requirements to ../build/camera_perception_pkg/camera_perception_pkg.egg-info/requires.txt
+[0.739s] writing top-level names to ../build/camera_perception_pkg/camera_perception_pkg.egg-info/top_level.txt
+[0.739s] writing manifest file '../build/camera_perception_pkg/camera_perception_pkg.egg-info/SOURCES.txt'
+[0.741s] reading manifest file '../build/camera_perception_pkg/camera_perception_pkg.egg-info/SOURCES.txt'
+[0.742s] writing manifest file '../build/camera_perception_pkg/camera_perception_pkg.egg-info/SOURCES.txt'
+[0.742s] running build
+[0.742s] running build_py
+[0.742s] creating /home/jsmoon/yax_jeju/src/build/camera_perception_pkg/build
+[0.742s] creating /home/jsmoon/yax_jeju/src/build/camera_perception_pkg/build/lib
+[0.742s] creating /home/jsmoon/yax_jeju/src/build/camera_perception_pkg/build/lib/camera_perception_pkg
+[0.742s] copying camera_perception_pkg/__init__.py -> /home/jsmoon/yax_jeju/src/build/camera_perception_pkg/build/lib/camera_perception_pkg
+[0.742s] copying camera_perception_pkg/object_detector_node.py -> /home/jsmoon/yax_jeju/src/build/camera_perception_pkg/build/lib/camera_perception_pkg
+[0.743s] copying camera_perception_pkg/compare.py -> /home/jsmoon/yax_jeju/src/build/camera_perception_pkg/build/lib/camera_perception_pkg
+[0.743s] copying camera_perception_pkg/cali.py -> /home/jsmoon/yax_jeju/src/build/camera_perception_pkg/build/lib/camera_perception_pkg
+[0.744s] copying camera_perception_pkg/lane_detection.py -> /home/jsmoon/yax_jeju/src/build/camera_perception_pkg/build/lib/camera_perception_pkg
+[0.744s] copying camera_perception_pkg/lane_extract.py -> /home/jsmoon/yax_jeju/src/build/camera_perception_pkg/build/lib/camera_perception_pkg
+[0.744s] copying camera_perception_pkg/yolov8_traffic_light_node.py -> /home/jsmoon/yax_jeju/src/build/camera_perception_pkg/build/lib/camera_perception_pkg
+[0.745s] copying camera_perception_pkg/traffic_light_detector_node.py -> /home/jsmoon/yax_jeju/src/build/camera_perception_pkg/build/lib/camera_perception_pkg
+[0.745s] copying camera_perception_pkg/roi_merger_node.py -> /home/jsmoon/yax_jeju/src/build/camera_perception_pkg/build/lib/camera_perception_pkg
+[0.745s] copying camera_perception_pkg/yolov8_node.py -> /home/jsmoon/yax_jeju/src/build/camera_perception_pkg/build/lib/camera_perception_pkg
+[0.745s] copying camera_perception_pkg/lane_info_extractor_node.py -> /home/jsmoon/yax_jeju/src/build/camera_perception_pkg/build/lib/camera_perception_pkg
+[0.745s] copying camera_perception_pkg/image_publisher_node.py -> /home/jsmoon/yax_jeju/src/build/camera_perception_pkg/build/lib/camera_perception_pkg
+[0.745s] creating /home/jsmoon/yax_jeju/src/build/camera_perception_pkg/build/lib/camera_perception_pkg/lib
+[0.745s] copying camera_perception_pkg/lib/__init__.py -> /home/jsmoon/yax_jeju/src/build/camera_perception_pkg/build/lib/camera_perception_pkg/lib
+[0.746s] copying camera_perception_pkg/lib/camera_perception_func_lib.py -> /home/jsmoon/yax_jeju/src/build/camera_perception_pkg/build/lib/camera_perception_pkg/lib
+[0.746s] running install
+[0.746s] running install_lib
+[0.747s] creating /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg
+[0.747s] creating /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg/lib
+[0.747s] copying /home/jsmoon/yax_jeju/src/build/camera_perception_pkg/build/lib/camera_perception_pkg/lib/__init__.py -> /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg/lib
+[0.747s] copying /home/jsmoon/yax_jeju/src/build/camera_perception_pkg/build/lib/camera_perception_pkg/lib/camera_perception_func_lib.py -> /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg/lib
+[0.747s] copying /home/jsmoon/yax_jeju/src/build/camera_perception_pkg/build/lib/camera_perception_pkg/__init__.py -> /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg
+[0.747s] copying /home/jsmoon/yax_jeju/src/build/camera_perception_pkg/build/lib/camera_perception_pkg/object_detector_node.py -> /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg
+[0.747s] copying /home/jsmoon/yax_jeju/src/build/camera_perception_pkg/build/lib/camera_perception_pkg/compare.py -> /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg
+[0.747s] copying /home/jsmoon/yax_jeju/src/build/camera_perception_pkg/build/lib/camera_perception_pkg/cali.py -> /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg
+[0.747s] copying /home/jsmoon/yax_jeju/src/build/camera_perception_pkg/build/lib/camera_perception_pkg/lane_detection.py -> /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg
+[0.747s] copying /home/jsmoon/yax_jeju/src/build/camera_perception_pkg/build/lib/camera_perception_pkg/lane_extract.py -> /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg
+[0.747s] copying /home/jsmoon/yax_jeju/src/build/camera_perception_pkg/build/lib/camera_perception_pkg/yolov8_traffic_light_node.py -> /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg
+[0.747s] copying /home/jsmoon/yax_jeju/src/build/camera_perception_pkg/build/lib/camera_perception_pkg/traffic_light_detector_node.py -> /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg
+[0.747s] copying /home/jsmoon/yax_jeju/src/build/camera_perception_pkg/build/lib/camera_perception_pkg/roi_merger_node.py -> /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg
+[0.747s] copying /home/jsmoon/yax_jeju/src/build/camera_perception_pkg/build/lib/camera_perception_pkg/yolov8_node.py -> /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg
+[0.747s] copying /home/jsmoon/yax_jeju/src/build/camera_perception_pkg/build/lib/camera_perception_pkg/lane_info_extractor_node.py -> /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg
+[0.748s] copying /home/jsmoon/yax_jeju/src/build/camera_perception_pkg/build/lib/camera_perception_pkg/image_publisher_node.py -> /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg
+[0.748s] byte-compiling /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg/lib/__init__.py to __init__.cpython-310.pyc
+[0.748s] byte-compiling /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg/lib/camera_perception_func_lib.py to camera_perception_func_lib.cpython-310.pyc
+[0.750s] byte-compiling /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg/__init__.py to __init__.cpython-310.pyc
+[0.750s] byte-compiling /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg/object_detector_node.py to object_detector_node.cpython-310.pyc
+[0.750s] byte-compiling /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg/compare.py to compare.cpython-310.pyc
+[0.751s] byte-compiling /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg/cali.py to cali.cpython-310.pyc
+[0.751s] byte-compiling /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg/lane_detection.py to lane_detection.cpython-310.pyc
+[0.752s] byte-compiling /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg/lane_extract.py to lane_extract.cpython-310.pyc
+[0.752s] byte-compiling /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg/yolov8_traffic_light_node.py to yolov8_traffic_light_node.cpython-310.pyc
+[0.753s] byte-compiling /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg/traffic_light_detector_node.py to traffic_light_detector_node.cpython-310.pyc
+[0.753s] byte-compiling /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg/roi_merger_node.py to roi_merger_node.cpython-310.pyc
+[0.754s] byte-compiling /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg/yolov8_node.py to yolov8_node.cpython-310.pyc
+[0.754s] byte-compiling /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg/lane_info_extractor_node.py to lane_info_extractor_node.cpython-310.pyc
+[0.755s] byte-compiling /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg/image_publisher_node.py to image_publisher_node.cpython-310.pyc
+[0.755s] running install_data
+[0.756s] creating /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/share/ament_index
+[0.756s] creating /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/share/ament_index/resource_index
+[0.756s] creating /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/share/ament_index/resource_index/packages
+[0.756s] copying resource/camera_perception_pkg -> /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/share/ament_index/resource_index/packages
+[0.756s] copying package.xml -> /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/share/camera_perception_pkg
+[0.756s] creating /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/share/camera_perception_pkg/launch
+[0.756s] copying launch/camera_lane.launch.py -> /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/share/camera_perception_pkg/launch
+[0.756s] running install_egg_info
+[0.757s] Copying ../build/camera_perception_pkg/camera_perception_pkg.egg-info to /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg-0.0.0-py3.10.egg-info
+[0.758s] running install_scripts
+[0.772s] Installing image_publisher_node script to /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/camera_perception_pkg
+[0.772s] Installing lane_extract script to /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/camera_perception_pkg
+[0.773s] Installing lane_info_extractor_node script to /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/camera_perception_pkg
+[0.773s] Installing object_detector_node script to /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/camera_perception_pkg
+[0.773s] Installing roi_merger_node script to /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/camera_perception_pkg
+[0.773s] Installing traffic_light_detector_node script to /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/camera_perception_pkg
+[0.773s] Installing traffic_light_yolov8_node script to /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/camera_perception_pkg
+[0.773s] Installing yolov8_node script to /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/camera_perception_pkg
+[0.773s] Installing yolov8_traffic_light_node script to /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/camera_perception_pkg
+[0.773s] writing list of installed files to '/home/jsmoon/yax_jeju/src/build/camera_perception_pkg/install.log'
+[0.795s] Invoked command in '/home/jsmoon/yax_jeju/src/camera_perception_pkg' returned '0': PYTHONPATH=/home/jsmoon/yax_jeju/src/build/camera_perception_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/camera_perception_pkg build --build-base /home/jsmoon/yax_jeju/src/build/camera_perception_pkg/build install --record /home/jsmoon/yax_jeju/src/build/camera_perception_pkg/install.log --single-version-externally-managed install_data

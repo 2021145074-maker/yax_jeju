@@ -1,0 +1,25 @@
+[2.675s] Invoking command in '/home/jsmoon/yax_jeju/build/camera_perception_pkg': PYTHONPATH=/home/jsmoon/yax_jeju/build/camera_perception_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jsmoon/yax_jeju/install/camera_perception_pkg/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/jsmoon/yax_jeju/build/camera_perception_pkg/build --no-deps symlink_data
+[2.951s] running develop
+[3.094s] running egg_info
+[3.095s] writing camera_perception_pkg.egg-info/PKG-INFO
+[3.095s] writing dependency_links to camera_perception_pkg.egg-info/dependency_links.txt
+[3.095s] writing entry points to camera_perception_pkg.egg-info/entry_points.txt
+[3.095s] writing requirements to camera_perception_pkg.egg-info/requires.txt
+[3.095s] writing top-level names to camera_perception_pkg.egg-info/top_level.txt
+[3.097s] reading manifest file 'camera_perception_pkg.egg-info/SOURCES.txt'
+[3.097s] writing manifest file 'camera_perception_pkg.egg-info/SOURCES.txt'
+[3.126s] running build_ext
+[3.126s] Creating /home/jsmoon/yax_jeju/install/camera_perception_pkg/lib/python3.10/site-packages/camera-perception-pkg.egg-link (link to .)
+[3.127s] Installing image_publisher_node script to /home/jsmoon/yax_jeju/install/camera_perception_pkg/lib/camera_perception_pkg
+[3.127s] Installing lane_extract script to /home/jsmoon/yax_jeju/install/camera_perception_pkg/lib/camera_perception_pkg
+[3.127s] Installing lane_info_extractor_node script to /home/jsmoon/yax_jeju/install/camera_perception_pkg/lib/camera_perception_pkg
+[3.127s] Installing object_detector_node script to /home/jsmoon/yax_jeju/install/camera_perception_pkg/lib/camera_perception_pkg
+[3.127s] Installing roi_merger_node script to /home/jsmoon/yax_jeju/install/camera_perception_pkg/lib/camera_perception_pkg
+[3.128s] Installing traffic_light_detector_node script to /home/jsmoon/yax_jeju/install/camera_perception_pkg/lib/camera_perception_pkg
+[3.128s] Installing traffic_light_yolov8_node script to /home/jsmoon/yax_jeju/install/camera_perception_pkg/lib/camera_perception_pkg
+[3.128s] Installing yolov8_node script to /home/jsmoon/yax_jeju/install/camera_perception_pkg/lib/camera_perception_pkg
+[3.128s] Installing yolov8_traffic_light_node script to /home/jsmoon/yax_jeju/install/camera_perception_pkg/lib/camera_perception_pkg
+[3.128s] 
+[3.128s] Installed /home/jsmoon/yax_jeju/build/camera_perception_pkg
+[3.128s] running symlink_data
+[3.182s] Invoked command in '/home/jsmoon/yax_jeju/build/camera_perception_pkg' returned '0': PYTHONPATH=/home/jsmoon/yax_jeju/build/camera_perception_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jsmoon/yax_jeju/install/camera_perception_pkg/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/jsmoon/yax_jeju/build/camera_perception_pkg/build --no-deps symlink_data

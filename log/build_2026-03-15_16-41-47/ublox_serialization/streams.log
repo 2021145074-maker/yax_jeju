@@ -1,0 +1,26 @@
+[0.049s] Invoking command in '/home/jsmoon/yax_jeju/build/ublox_serialization': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jsmoon/yax_jeju/install/my_custom_pkg:/home/jsmoon/yax_jeju/install/serial_communication_pkg:/home/jsmoon/yax_jeju/install/ntrip_client:/home/jsmoon/yax_jeju/install/lidar_perception_pkg:/home/jsmoon/yax_jeju/install/latlong_utm:/home/jsmoon/yax_jeju/install/decision_making_pkg:/home/jsmoon/yax_jeju/install/debug_pkg:/home/jsmoon/yax_jeju/install/camera_perception_pkg:/opt/ros/humble /usr/bin/cmake --build /home/jsmoon/yax_jeju/build/ublox_serialization -- -j16 -l16
+[1.944s] Invoked command in '/home/jsmoon/yax_jeju/build/ublox_serialization' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jsmoon/yax_jeju/install/my_custom_pkg:/home/jsmoon/yax_jeju/install/serial_communication_pkg:/home/jsmoon/yax_jeju/install/ntrip_client:/home/jsmoon/yax_jeju/install/lidar_perception_pkg:/home/jsmoon/yax_jeju/install/latlong_utm:/home/jsmoon/yax_jeju/install/decision_making_pkg:/home/jsmoon/yax_jeju/install/debug_pkg:/home/jsmoon/yax_jeju/install/camera_perception_pkg:/opt/ros/humble /usr/bin/cmake --build /home/jsmoon/yax_jeju/build/ublox_serialization -- -j16 -l16
+[1.953s] Invoking command in '/home/jsmoon/yax_jeju/build/ublox_serialization': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jsmoon/yax_jeju/install/my_custom_pkg:/home/jsmoon/yax_jeju/install/serial_communication_pkg:/home/jsmoon/yax_jeju/install/ntrip_client:/home/jsmoon/yax_jeju/install/lidar_perception_pkg:/home/jsmoon/yax_jeju/install/latlong_utm:/home/jsmoon/yax_jeju/install/decision_making_pkg:/home/jsmoon/yax_jeju/install/debug_pkg:/home/jsmoon/yax_jeju/install/camera_perception_pkg:/opt/ros/humble /usr/bin/cmake --install /home/jsmoon/yax_jeju/build/ublox_serialization
+[1.972s] -- Install configuration: ""
+[1.972s] -- Execute custom install script
+[1.972s] -- Up-to-date symlink: /home/jsmoon/yax_jeju/install/ublox_serialization/include/ublox_serialization/ublox_serialization/checksum.hpp
+[1.972s] -- Up-to-date symlink: /home/jsmoon/yax_jeju/install/ublox_serialization/include/ublox_serialization/ublox_serialization/serialization.hpp
+[1.973s] -- Up-to-date symlink: /home/jsmoon/yax_jeju/install/ublox_serialization/share/ament_index/resource_index/package_run_dependencies/ublox_serialization
+[1.973s] -- Up-to-date symlink: /home/jsmoon/yax_jeju/install/ublox_serialization/share/ament_index/resource_index/parent_prefix_path/ublox_serialization
+[1.973s] -- Up-to-date symlink: /home/jsmoon/yax_jeju/install/ublox_serialization/share/ublox_serialization/environment/ament_prefix_path.sh
+[1.973s] -- Up-to-date symlink: /home/jsmoon/yax_jeju/install/ublox_serialization/share/ublox_serialization/environment/ament_prefix_path.dsv
+[1.973s] -- Up-to-date symlink: /home/jsmoon/yax_jeju/install/ublox_serialization/share/ublox_serialization/environment/path.sh
+[1.973s] -- Up-to-date symlink: /home/jsmoon/yax_jeju/install/ublox_serialization/share/ublox_serialization/environment/path.dsv
+[1.973s] -- Up-to-date symlink: /home/jsmoon/yax_jeju/install/ublox_serialization/share/ublox_serialization/local_setup.bash
+[1.973s] -- Up-to-date symlink: /home/jsmoon/yax_jeju/install/ublox_serialization/share/ublox_serialization/local_setup.sh
+[1.973s] -- Up-to-date symlink: /home/jsmoon/yax_jeju/install/ublox_serialization/share/ublox_serialization/local_setup.zsh
+[1.973s] -- Up-to-date symlink: /home/jsmoon/yax_jeju/install/ublox_serialization/share/ublox_serialization/local_setup.dsv
+[1.973s] -- Symlinking: /home/jsmoon/yax_jeju/install/ublox_serialization/share/ublox_serialization/package.dsv
+[1.995s] -- Up-to-date symlink: /home/jsmoon/yax_jeju/install/ublox_serialization/share/ament_index/resource_index/packages/ublox_serialization
+[1.995s] -- Up-to-date symlink: /home/jsmoon/yax_jeju/install/ublox_serialization/share/ublox_serialization/cmake/ament_cmake_export_include_directories-extras.cmake
+[1.995s] -- Up-to-date symlink: /home/jsmoon/yax_jeju/install/ublox_serialization/share/ublox_serialization/cmake/ament_cmake_export_targets-extras.cmake
+[1.996s] -- Up-to-date symlink: /home/jsmoon/yax_jeju/install/ublox_serialization/share/ublox_serialization/cmake/ublox_serializationConfig.cmake
+[1.996s] -- Up-to-date symlink: /home/jsmoon/yax_jeju/install/ublox_serialization/share/ublox_serialization/cmake/ublox_serializationConfig-version.cmake
+[1.996s] -- Up-to-date symlink: /home/jsmoon/yax_jeju/install/ublox_serialization/share/ublox_serialization/package.xml
+[1.996s] -- Up-to-date: /home/jsmoon/yax_jeju/install/ublox_serialization/share/ublox_serialization/cmake/export_ublox_serializationExport.cmake
+[1.998s] Invoked command in '/home/jsmoon/yax_jeju/build/ublox_serialization' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jsmoon/yax_jeju/install/my_custom_pkg:/home/jsmoon/yax_jeju/install/serial_communication_pkg:/home/jsmoon/yax_jeju/install/ntrip_client:/home/jsmoon/yax_jeju/install/lidar_perception_pkg:/home/jsmoon/yax_jeju/install/latlong_utm:/home/jsmoon/yax_jeju/install/decision_making_pkg:/home/jsmoon/yax_jeju/install/debug_pkg:/home/jsmoon/yax_jeju/install/camera_perception_pkg:/opt/ros/humble /usr/bin/cmake --install /home/jsmoon/yax_jeju/build/ublox_serialization

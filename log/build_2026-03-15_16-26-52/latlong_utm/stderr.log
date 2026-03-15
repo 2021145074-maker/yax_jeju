@@ -1,0 +1,4 @@
+/usr/lib/python3/dist-packages/setuptools/dist.py:723: UserWarning: Usage of dash-separated 'script-dir' will not be supported in future versions. Please use the underscore name 'script_dir' instead
+  warnings.warn(
+/usr/lib/python3/dist-packages/setuptools/command/easy_install.py:355: UserWarning: Unbuilt egg for ntrip-client 1.2.0 (/home/jsmoon/yax_jeju/build/ntrip_client/src)
+  self.local_index = Environment(self.shadow_path + sys.path)

@@ -10,6 +10,7 @@ camera_perception_pkg/lane_extract.py
 camera_perception_pkg/lane_info_extractor_node.py
 camera_perception_pkg/object_detector_node.py
 camera_perception_pkg/roi_merger_node.py
+camera_perception_pkg/test.py
 camera_perception_pkg/traffic_light_detector_node.py
 camera_perception_pkg/yolov8_node.py
 camera_perception_pkg/yolov8_traffic_light_node.py

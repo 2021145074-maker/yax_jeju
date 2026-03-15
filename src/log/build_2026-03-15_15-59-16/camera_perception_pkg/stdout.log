@@ -1,0 +1,83 @@
+running egg_info
+creating ../build/camera_perception_pkg/camera_perception_pkg.egg-info
+writing ../build/camera_perception_pkg/camera_perception_pkg.egg-info/PKG-INFO
+writing dependency_links to ../build/camera_perception_pkg/camera_perception_pkg.egg-info/dependency_links.txt
+writing entry points to ../build/camera_perception_pkg/camera_perception_pkg.egg-info/entry_points.txt
+writing requirements to ../build/camera_perception_pkg/camera_perception_pkg.egg-info/requires.txt
+writing top-level names to ../build/camera_perception_pkg/camera_perception_pkg.egg-info/top_level.txt
+writing manifest file '../build/camera_perception_pkg/camera_perception_pkg.egg-info/SOURCES.txt'
+reading manifest file '../build/camera_perception_pkg/camera_perception_pkg.egg-info/SOURCES.txt'
+writing manifest file '../build/camera_perception_pkg/camera_perception_pkg.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/jsmoon/yax_jeju/src/build/camera_perception_pkg/build
+creating /home/jsmoon/yax_jeju/src/build/camera_perception_pkg/build/lib
+creating /home/jsmoon/yax_jeju/src/build/camera_perception_pkg/build/lib/camera_perception_pkg
+copying camera_perception_pkg/__init__.py -> /home/jsmoon/yax_jeju/src/build/camera_perception_pkg/build/lib/camera_perception_pkg
+copying camera_perception_pkg/object_detector_node.py -> /home/jsmoon/yax_jeju/src/build/camera_perception_pkg/build/lib/camera_perception_pkg
+copying camera_perception_pkg/compare.py -> /home/jsmoon/yax_jeju/src/build/camera_perception_pkg/build/lib/camera_perception_pkg
+copying camera_perception_pkg/cali.py -> /home/jsmoon/yax_jeju/src/build/camera_perception_pkg/build/lib/camera_perception_pkg
+copying camera_perception_pkg/lane_detection.py -> /home/jsmoon/yax_jeju/src/build/camera_perception_pkg/build/lib/camera_perception_pkg
+copying camera_perception_pkg/lane_extract.py -> /home/jsmoon/yax_jeju/src/build/camera_perception_pkg/build/lib/camera_perception_pkg
+copying camera_perception_pkg/yolov8_traffic_light_node.py -> /home/jsmoon/yax_jeju/src/build/camera_perception_pkg/build/lib/camera_perception_pkg
+copying camera_perception_pkg/traffic_light_detector_node.py -> /home/jsmoon/yax_jeju/src/build/camera_perception_pkg/build/lib/camera_perception_pkg
+copying camera_perception_pkg/roi_merger_node.py -> /home/jsmoon/yax_jeju/src/build/camera_perception_pkg/build/lib/camera_perception_pkg
+copying camera_perception_pkg/yolov8_node.py -> /home/jsmoon/yax_jeju/src/build/camera_perception_pkg/build/lib/camera_perception_pkg
+copying camera_perception_pkg/lane_info_extractor_node.py -> /home/jsmoon/yax_jeju/src/build/camera_perception_pkg/build/lib/camera_perception_pkg
+copying camera_perception_pkg/image_publisher_node.py -> /home/jsmoon/yax_jeju/src/build/camera_perception_pkg/build/lib/camera_perception_pkg
+creating /home/jsmoon/yax_jeju/src/build/camera_perception_pkg/build/lib/camera_perception_pkg/lib
+copying camera_perception_pkg/lib/__init__.py -> /home/jsmoon/yax_jeju/src/build/camera_perception_pkg/build/lib/camera_perception_pkg/lib
+copying camera_perception_pkg/lib/camera_perception_func_lib.py -> /home/jsmoon/yax_jeju/src/build/camera_perception_pkg/build/lib/camera_perception_pkg/lib
+running install
+running install_lib
+creating /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg
+creating /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg/lib
+copying /home/jsmoon/yax_jeju/src/build/camera_perception_pkg/build/lib/camera_perception_pkg/lib/__init__.py -> /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg/lib
+copying /home/jsmoon/yax_jeju/src/build/camera_perception_pkg/build/lib/camera_perception_pkg/lib/camera_perception_func_lib.py -> /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg/lib
+copying /home/jsmoon/yax_jeju/src/build/camera_perception_pkg/build/lib/camera_perception_pkg/__init__.py -> /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg
+copying /home/jsmoon/yax_jeju/src/build/camera_perception_pkg/build/lib/camera_perception_pkg/object_detector_node.py -> /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg
+copying /home/jsmoon/yax_jeju/src/build/camera_perception_pkg/build/lib/camera_perception_pkg/compare.py -> /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg
+copying /home/jsmoon/yax_jeju/src/build/camera_perception_pkg/build/lib/camera_perception_pkg/cali.py -> /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg
+copying /home/jsmoon/yax_jeju/src/build/camera_perception_pkg/build/lib/camera_perception_pkg/lane_detection.py -> /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg
+copying /home/jsmoon/yax_jeju/src/build/camera_perception_pkg/build/lib/camera_perception_pkg/lane_extract.py -> /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg
+copying /home/jsmoon/yax_jeju/src/build/camera_perception_pkg/build/lib/camera_perception_pkg/yolov8_traffic_light_node.py -> /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg
+copying /home/jsmoon/yax_jeju/src/build/camera_perception_pkg/build/lib/camera_perception_pkg/traffic_light_detector_node.py -> /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg
+copying /home/jsmoon/yax_jeju/src/build/camera_perception_pkg/build/lib/camera_perception_pkg/roi_merger_node.py -> /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg
+copying /home/jsmoon/yax_jeju/src/build/camera_perception_pkg/build/lib/camera_perception_pkg/yolov8_node.py -> /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg
+copying /home/jsmoon/yax_jeju/src/build/camera_perception_pkg/build/lib/camera_perception_pkg/lane_info_extractor_node.py -> /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg
+copying /home/jsmoon/yax_jeju/src/build/camera_perception_pkg/build/lib/camera_perception_pkg/image_publisher_node.py -> /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg
+byte-compiling /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg/lib/__init__.py to __init__.cpython-310.pyc
+byte-compiling /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg/lib/camera_perception_func_lib.py to camera_perception_func_lib.cpython-310.pyc
+byte-compiling /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg/__init__.py to __init__.cpython-310.pyc
+byte-compiling /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg/object_detector_node.py to object_detector_node.cpython-310.pyc
+byte-compiling /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg/compare.py to compare.cpython-310.pyc
+byte-compiling /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg/cali.py to cali.cpython-310.pyc
+byte-compiling /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg/lane_detection.py to lane_detection.cpython-310.pyc
+byte-compiling /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg/lane_extract.py to lane_extract.cpython-310.pyc
+byte-compiling /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg/yolov8_traffic_light_node.py to yolov8_traffic_light_node.cpython-310.pyc
+byte-compiling /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg/traffic_light_detector_node.py to traffic_light_detector_node.cpython-310.pyc
+byte-compiling /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg/roi_merger_node.py to roi_merger_node.cpython-310.pyc
+byte-compiling /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg/yolov8_node.py to yolov8_node.cpython-310.pyc
+byte-compiling /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg/lane_info_extractor_node.py to lane_info_extractor_node.cpython-310.pyc
+byte-compiling /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg/image_publisher_node.py to image_publisher_node.cpython-310.pyc
+running install_data
+creating /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/share/ament_index
+creating /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/share/ament_index/resource_index
+creating /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/share/ament_index/resource_index/packages
+copying resource/camera_perception_pkg -> /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/share/ament_index/resource_index/packages
+copying package.xml -> /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/share/camera_perception_pkg
+creating /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/share/camera_perception_pkg/launch
+copying launch/camera_lane.launch.py -> /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/share/camera_perception_pkg/launch
+running install_egg_info
+Copying ../build/camera_perception_pkg/camera_perception_pkg.egg-info to /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/python3.10/site-packages/camera_perception_pkg-0.0.0-py3.10.egg-info
+running install_scripts
+Installing image_publisher_node script to /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/camera_perception_pkg
+Installing lane_extract script to /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/camera_perception_pkg
+Installing lane_info_extractor_node script to /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/camera_perception_pkg
+Installing object_detector_node script to /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/camera_perception_pkg
+Installing roi_merger_node script to /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/camera_perception_pkg
+Installing traffic_light_detector_node script to /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/camera_perception_pkg
+Installing traffic_light_yolov8_node script to /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/camera_perception_pkg
+Installing yolov8_node script to /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/camera_perception_pkg
+Installing yolov8_traffic_light_node script to /home/jsmoon/yax_jeju/src/install/camera_perception_pkg/lib/camera_perception_pkg
+writing list of installed files to '/home/jsmoon/yax_jeju/src/build/camera_perception_pkg/install.log'

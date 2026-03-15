@@ -1,0 +1,17 @@
+running develop
+running egg_info
+writing lidar_perception_pkg.egg-info/PKG-INFO
+writing dependency_links to lidar_perception_pkg.egg-info/dependency_links.txt
+writing entry points to lidar_perception_pkg.egg-info/entry_points.txt
+writing requirements to lidar_perception_pkg.egg-info/requires.txt
+writing top-level names to lidar_perception_pkg.egg-info/top_level.txt
+reading manifest file 'lidar_perception_pkg.egg-info/SOURCES.txt'
+writing manifest file 'lidar_perception_pkg.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/jsmoon/yax_jeju/install/lidar_perception_pkg/lib/python3.10/site-packages/lidar-perception-pkg.egg-link (link to .)
+Installing lidar_obstacle_detector_node script to /home/jsmoon/yax_jeju/install/lidar_perception_pkg/lib/lidar_perception_pkg
+Installing lidar_processor_node script to /home/jsmoon/yax_jeju/install/lidar_perception_pkg/lib/lidar_perception_pkg
+Installing lidar_publisher_node script to /home/jsmoon/yax_jeju/install/lidar_perception_pkg/lib/lidar_perception_pkg
+
+Installed /home/jsmoon/yax_jeju/build/lidar_perception_pkg
+running symlink_data

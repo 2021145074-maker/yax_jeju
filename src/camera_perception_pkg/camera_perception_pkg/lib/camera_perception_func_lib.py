@@ -172,8 +172,8 @@ def get_lane_center(cv_image: np.array, detection_height: int, detection_thickne
 				road_target_point_x = line_x_axis_pixel + (lane_width/2)
 			else:
 				road_target_point_x = line_x_axis_pixel - (lane_width/2)
-			if road_target_point_x > (lane_width-1):
-				road_target_point_x = (lane_width-1)
+			if road_target_point_x > (cv_image.shape[1] - 1):
+				road_target_point_x = (cv_image.shape[1] - 1)
 			elif road_target_point_x < 0:
 				road_target_point_x = 0
 	
