@@ -1,0 +1,8 @@
+path: C:\Users\jaein\workspace\yax_jeju\train_yolo\dataset  # (필수) 절대 경로
+
+train: train  
+val: valid    
+test: test    # 👈 폴더가 존재한다면 이 줄만 추가해 주세요!
+
+nc: 1
+names: ['lane']
