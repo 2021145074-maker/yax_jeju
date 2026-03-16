@@ -5,15 +5,15 @@
 waypoint_follower_node:
   ros__parameters:
     waypoint_csv: "/home/jsmoon/yax_jeju/waypoints.csv"
-    arrive_dist_m: 2.5
-    speed_forward: 30.0
-    speed_slow: 10.0
-    slow_dist_m: 5.0
+    arrive_dist_m: 1.0
+    speed_forward: 70.0
+    speed_slow: 50.0
+    slow_dist_m: 1.5
     max_steering: 7
-    k_p: -0.4
+    k_p: -0.55
     k_i: -0.01
-    k_d: -0.12
-    steering_alpha: 0.55
+    k_d: -0.16
+    steering_alpha: 0.4
     stop_wp_indices: "[]"
     pause_wp_indices: "[]"
     pause_seconds: 0.0
@@ -45,7 +45,7 @@ tunnel_nav_node:
     right_angle_max_deg: -30.0
     k_tunnel: 2.0
     max_steering: 7.0
-    tunnel_speed: 15.0
+    tunnel_speed: 30.0
     entry_count_threshold: 5
     exit_count_threshold: 10
 

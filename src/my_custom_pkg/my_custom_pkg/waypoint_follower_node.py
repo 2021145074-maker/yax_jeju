@@ -305,6 +305,12 @@ class WaypointFollowerNode(Node):
             d = math.hypot(xy[0] - cx, xy[1] - cy)
             if d < best_d:
                 best_d, best_i = d, i
+        # 가장 가까운 WP가 이미 도착 범위 안이면 그 다음 WP부터 시작
+        if best_d < self.arrive_dist_m and best_i + 1 < len(self.waypoints):
+            best_i += 1
+            self.get_logger().info(
+                f'[AutoStart] 가장 가까운 WP{best_i - 1} 이미 근접 → '
+                f'WP{best_i}부터 시작')
         self.current_wp_idx = best_i
         self._update_goal()
         self.get_logger().info(
