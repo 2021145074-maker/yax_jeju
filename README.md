@@ -2,13 +2,6 @@
 
 This repository is a ROS 2 workspace for a student/team project on a 1/5-scale autonomous driving vehicle. It includes perception, decision, and integration components used for real-vehicle testing, with a focus on camera-based lane perception and LiDAR-based obstacle handling.
 
-## My Role
-- HW/SW development contributor in a team project
-- Developed and tuned camera + YOLO-based lane perception flow
-- Integrated modules for autonomous driving system operation
-- Improved LiDAR-based obstacle avoidance performance
-- Supported end-to-end integration for real vehicle testing
-
 ## Key Features
 - Camera perception pipeline with YOLO nodes and lane information extraction
 - LiDAR processing and obstacle detection nodes
