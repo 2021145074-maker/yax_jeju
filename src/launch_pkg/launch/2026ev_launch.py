@@ -34,12 +34,8 @@ def generate_launch_description():
         executable='fix2nmea',
         name='fix2nmea_node'
     )
-    serial_sender_node = Node(
-        package = 'serial_communication_pkg',
-        executable = 'serial_sender_node',
-        name = 'serial_sender_node',
-        #output='screen'
-    )
+    # serial_sender_node는 별도 터미널에서 실행:
+    #   ros2 run serial_communication_pkg serial_sender_node
 
     camera_lane_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
@@ -69,7 +65,6 @@ def generate_launch_description():
         ublox_gps_launch,
         ntrip_client_launch,
         fix2nmea_node,
-        serial_sender_node,
         camera_lane_launch,
         path_planner_node,
         ydlidar_launch,
