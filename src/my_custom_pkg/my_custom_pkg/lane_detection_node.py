@@ -42,7 +42,7 @@ class LaneDetectionNode(Node):
         self.sub_path_topic = self.declare_parameter(
             'sub_path_topic', 'path_planning_result').value
         self.timer_period = float(
-            self.declare_parameter('timer_period', 0.1).value)
+            self.declare_parameter('timer_period', 0.05).value)
 
         # 카메라/BEV 기준점 (픽셀)
         self.car_center_x = int(
