@@ -27,8 +27,10 @@ from rclpy.qos import (
     QoSDurabilityPolicy, QoSReliabilityPolicy,
 )
 import numpy as np
-from sensor_msgs.msg import LaserScan
+import cv2
+from sensor_msgs.msg import LaserScan, Image
 from std_msgs.msg import Float64, Bool
+from cv_bridge import CvBridge
 
 
 class TunnelNavNode(Node):
@@ -45,9 +47,15 @@ class TunnelNavNode(Node):
         self.cone_detect_dist_m = float(
             self.declare_parameter('cone_detect_dist_m', 3.0).value)
 
-        # 스캔 각도 범위 (deg) — 전방 기준 좌우 탐색 범위
-        self.scan_angle_deg = float(
-            self.declare_parameter('scan_angle_deg', 90.0).value)
+        # 스캔 각도 범위 (deg) — 좌/우 개별 설정
+        self.left_angle_min_deg = float(
+            self.declare_parameter('left_angle_min_deg', 30.0).value)
+        self.left_angle_max_deg = float(
+            self.declare_parameter('left_angle_max_deg', 70.0).value)
+        self.right_angle_min_deg = float(
+            self.declare_parameter('right_angle_min_deg', -70.0).value)
+        self.right_angle_max_deg = float(
+            self.declare_parameter('right_angle_max_deg', -30.0).value)
 
         # 클러스터링 파라미터
         self.cluster_gap_m = float(
@@ -82,6 +90,7 @@ class TunnelNavNode(Node):
         self.is_active = False
         self._enter_cnt = 0
         self._exit_cnt = 0
+        self._last_steering = 0.0
 
         # ═══════ QoS ═══════
         qos_best = QoSProfile(
@@ -100,6 +109,9 @@ class TunnelNavNode(Node):
             Float64, '/tunnel/speed', qos_rel)
         self.pub_active = self.create_publisher(
             Bool, '/tunnel/active', qos_rel)
+        self.pub_debug_img = self.create_publisher(
+            Image, '/tunnel/debug_image', qos_rel)
+        self.cv_bridge = CvBridge()
 
         # ═══════ 서브스크라이버 ═══════
         self.create_subscription(
@@ -116,7 +128,8 @@ class TunnelNavNode(Node):
 
     # ────────── 스캔 → XY 좌표 변환 ──────────
     def _scan_to_xy(self, msg: LaserScan):
-        """전방 ±scan_angle_deg 내 유효 포인트를 (x, y, angle) 배열로 변환.
+        """좌(+30~+70°) / 우(-70~-30°) 범위의 유효 포인트를 (x, y, angle) 배열로 변환.
+        전방 ±30° 는 제외하여 obstacle_detect_node와 간섭을 줄임.
         x: 전방, y: 좌측 양수 (ROS 관례)"""
         ranges = np.array(msg.ranges, dtype=float)
         n = len(ranges)
@@ -125,9 +138,15 @@ class TunnelNavNode(Node):
 
         angles = msg.angle_min + np.arange(n) * msg.angle_increment
 
-        # 전방 ±scan_angle_deg 필터
-        half_rad = math.radians(self.scan_angle_deg)
-        mask_angle = np.abs(angles) <= half_rad
+        # 좌측 범위 OR 우측 범위
+        left_min = math.radians(self.left_angle_min_deg)
+        left_max = math.radians(self.left_angle_max_deg)
+        right_min = math.radians(self.right_angle_min_deg)
+        right_max = math.radians(self.right_angle_max_deg)
+
+        mask_left = (angles >= left_min) & (angles <= left_max)
+        mask_right = (angles >= right_min) & (angles <= right_max)
+        mask_angle = mask_left | mask_right
 
         # 유효 거리 필터
         mask_valid = (np.isfinite(ranges)
@@ -180,14 +199,18 @@ class TunnelNavNode(Node):
         """
         cones = []
         for cl in clusters:
-            if len(cl) < self.cone_min_points:
-                continue
             # 클러스터 폭 = 양 끝 포인트 간 거리
             width = math.sqrt(
                 (cl[-1, 0] - cl[0, 0]) ** 2 + (cl[-1, 1] - cl[0, 1]) ** 2)
+            cx = float(np.mean(cl[:, 0]))
+            cy = float(np.mean(cl[:, 1]))
+            self.get_logger().debug(
+                f'  cluster: pts={len(cl)} width={width:.3f}m '
+                f'center=({cx:.2f},{cy:.2f})',
+                throttle_duration_sec=0.5)
+            if len(cl) < self.cone_min_points:
+                continue
             if self.cone_min_width_m <= width <= self.cone_max_width_m:
-                cx = float(np.mean(cl[:, 0]))
-                cy = float(np.mean(cl[:, 1]))
                 cones.append((cx, cy))
         return cones
 
@@ -202,19 +225,29 @@ class TunnelNavNode(Node):
         clusters = self._cluster_points(points)
         cones = self._filter_cones(clusters)
 
+        self.get_logger().info(
+            f'[Debug] points={len(points)} clusters={len(clusters)} cones={len(cones)}',
+            throttle_duration_sec=1.0)
+
         # 좌/우 분류 (y > 0: 좌측, y < 0: 우측)
         left_cones = [(x, y) for x, y in cones if y > 0]
         right_cones = [(x, y) for x, y in cones if y <= 0]
 
-        detected = (len(left_cones) >= self.min_cones_per_side
-                    and len(right_cones) >= self.min_cones_per_side)
+        # 양쪽 다 있으면 완전 감지, 한쪽만 있으면 부분 감지
+        both_detected = (len(left_cones) >= self.min_cones_per_side
+                         and len(right_cones) >= self.min_cones_per_side)
+        any_detected = (len(left_cones) >= self.min_cones_per_side
+                        or len(right_cones) >= self.min_cones_per_side)
 
-        # 히스테리시스
-        if detected:
+        # 히스테리시스: 양쪽 감지로 진입, 한쪽이라도 있으면 유지
+        if both_detected:
             self._enter_cnt += 1
             self._exit_cnt = 0
             if self._enter_cnt >= self.entry_count_threshold:
                 self.is_active = True
+        elif any_detected and self.is_active:
+            # 이미 활성 상태에서 한쪽만 보이면 유지 (exit 카운트 안 올림)
+            self._exit_cnt = 0
         else:
             self._exit_cnt += 1
             self._enter_cnt = 0
@@ -222,32 +255,137 @@ class TunnelNavNode(Node):
                 self.is_active = False
 
         if not self.is_active:
+            self._publish_debug_image(points, clusters, cones,
+                                       left_cones, right_cones)
             self._pub_values(0.0, 0.0, False)
             return
 
-        # ── 조향 계산: 가장 가까운 좌/우 콘 쌍의 중앙 ──
-        # 가장 가까운 콘 = 전방 거리(x) 기준
+        # ── 조향 계산 ──
         left_cones.sort(key=lambda c: c[0])   # x 오름차순 (가까운 순)
         right_cones.sort(key=lambda c: c[0])
 
-        # 가장 가까운 좌/우 콘
-        lc = left_cones[0]
-        rc = right_cones[0]
+        mid_x = None
+        mid_y = None
 
-        # 중앙점
-        mid_x = (lc[0] + rc[0]) / 2.0
-        mid_y = (lc[1] + rc[1]) / 2.0
+        if left_cones and right_cones:
+            # 양쪽 다 있으면 중앙점으로 조향
+            lc = left_cones[0]
+            rc = right_cones[0]
+            mid_x = (lc[0] + rc[0]) / 2.0
+            mid_y = (lc[1] + rc[1]) / 2.0
+            steering = self.k_cone * mid_y
+        elif right_cones:
+            # 오른쪽 콘만 보임 → 왼쪽으로 회피 (콘의 y는 음수)
+            rc = right_cones[0]
+            mid_x = rc[0]
+            mid_y = rc[1]
+            steering = self.k_cone * (rc[1] + 0.5)  # 콘에서 0.5m 왼쪽으로
+        elif left_cones:
+            # 왼쪽 콘만 보임 → 오른쪽으로 회피 (콘의 y는 양수)
+            lc = left_cones[0]
+            mid_x = lc[0]
+            mid_y = lc[1]
+            steering = self.k_cone * (lc[1] - 0.5)  # 콘에서 0.5m 오른쪽으로
+        else:
+            # 콘 없음 → 이전 조향 유지
+            self._publish_debug_image(points, clusters, cones,
+                                       left_cones, right_cones)
+            self._pub_values(self._last_steering, self.cone_speed, True)
+            return
 
-        # 차량 전방(x축) 대비 중앙점의 y 오프셋 → 조향
-        # mid_y > 0 이면 중앙이 왼쪽 → 왼쪽으로 조향
-        steering = self.k_cone * mid_y
         steering = max(-self.max_steering, min(self.max_steering, steering))
+        self._last_steering = steering
 
+        self._publish_debug_image(points, clusters, cones,
+                                   left_cones, right_cones, mid_x, mid_y)
         self._pub_values(steering, self.cone_speed, True)
         self.get_logger().info(
             f'[Cone] L={len(left_cones)}개 R={len(right_cones)}개 '
             f'mid=({mid_x:.2f},{mid_y:.2f}) steer={steering:.2f}',
             throttle_duration_sec=0.5)
+
+    # ────────── 디버그 이미지 ──────────
+    def _publish_debug_image(self, points, clusters, cones,
+                              left_cones, right_cones,
+                              mid_x=None, mid_y=None):
+        """Bird's-eye view 디버그 이미지 퍼블리시.
+        이미지 중앙 하단 = 차량 위치, 위쪽 = 전방"""
+        IMG_SIZE = 400
+        SCALE = 100  # 1m = 100px
+        cx, cy_img = IMG_SIZE // 2, IMG_SIZE - 30  # 차량 위치
+
+        img = np.zeros((IMG_SIZE, IMG_SIZE, 3), dtype=np.uint8)
+
+        # 그리드 (1m 간격)
+        for r in range(1, int(self.cone_detect_dist_m) + 2):
+            cv2.circle(img, (cx, cy_img), r * SCALE, (40, 40, 40), 1)
+
+        # 스캔 각도 범위 표시
+        for ang_deg in [self.left_angle_min_deg, self.left_angle_max_deg,
+                        self.right_angle_min_deg, self.right_angle_max_deg]:
+            rad = math.radians(ang_deg)
+            ex = int(cx + 300 * math.sin(rad))
+            ey = int(cy_img - 300 * math.cos(rad))
+            cv2.line(img, (cx, cy_img), (ex, ey), (60, 60, 60), 1)
+
+        # 전체 LiDAR 포인트 (회색 점)
+        for pt in points:
+            px = int(cx + pt[1] * SCALE)  # y → 좌우
+            py = int(cy_img - pt[0] * SCALE)  # x → 전방(위)
+            if 0 <= px < IMG_SIZE and 0 <= py < IMG_SIZE:
+                cv2.circle(img, (px, py), 2, (100, 100, 100), -1)
+
+        # 클러스터 (각각 다른 색)
+        colors = [(0, 255, 255), (255, 0, 255), (255, 255, 0),
+                  (0, 128, 255), (255, 128, 0), (128, 255, 0)]
+        for i, cl in enumerate(clusters):
+            color = colors[i % len(colors)]
+            for pt in cl:
+                px = int(cx + pt[1] * SCALE)
+                py = int(cy_img - pt[0] * SCALE)
+                if 0 <= px < IMG_SIZE and 0 <= py < IMG_SIZE:
+                    cv2.circle(img, (px, py), 3, color, -1)
+
+        # 좌측 콘 (초록 원)
+        for (cone_x, cone_y) in left_cones:
+            px = int(cx + cone_y * SCALE)
+            py = int(cy_img - cone_x * SCALE)
+            if 0 <= px < IMG_SIZE and 0 <= py < IMG_SIZE:
+                cv2.circle(img, (px, py), 8, (0, 255, 0), 2)
+                cv2.putText(img, 'L', (px - 5, py - 10),
+                            cv2.FONT_HERSHEY_SIMPLEX, 0.4, (0, 255, 0), 1)
+
+        # 우측 콘 (빨간 원)
+        for (cone_x, cone_y) in right_cones:
+            px = int(cx + cone_y * SCALE)
+            py = int(cy_img - cone_x * SCALE)
+            if 0 <= px < IMG_SIZE and 0 <= py < IMG_SIZE:
+                cv2.circle(img, (px, py), 8, (0, 0, 255), 2)
+                cv2.putText(img, 'R', (px - 5, py - 10),
+                            cv2.FONT_HERSHEY_SIMPLEX, 0.4, (0, 0, 255), 1)
+
+        # 중앙점 (파란 X)
+        if mid_x is not None and mid_y is not None:
+            px = int(cx + mid_y * SCALE)
+            py = int(cy_img - mid_x * SCALE)
+            if 0 <= px < IMG_SIZE and 0 <= py < IMG_SIZE:
+                cv2.drawMarker(img, (px, py), (255, 128, 0),
+                               cv2.MARKER_CROSS, 15, 2)
+
+        # 차량 위치 (흰 삼각형)
+        pts_car = np.array([[cx, cy_img - 10], [cx - 7, cy_img + 5],
+                            [cx + 7, cy_img + 5]], np.int32)
+        cv2.fillPoly(img, [pts_car], (255, 255, 255))
+
+        # 상태 텍스트
+        status = 'ACTIVE' if self.is_active else 'INACTIVE'
+        color_txt = (0, 255, 0) if self.is_active else (0, 0, 255)
+        cv2.putText(img, f'{status} L:{len(left_cones)} R:{len(right_cones)}',
+                    (10, 20), cv2.FONT_HERSHEY_SIMPLEX, 0.5, color_txt, 1)
+        cv2.putText(img, f'steer:{self._last_steering:.2f}',
+                    (10, 40), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 1)
+
+        self.pub_debug_img.publish(self.cv_bridge.cv2_to_imgmsg(img, 'bgr8'))
 
     # ────────── 퍼블리시 헬퍼 ──────────
     def _pub_values(self, steering: float, speed: float, active: bool):

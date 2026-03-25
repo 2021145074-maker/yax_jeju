@@ -1,1 +1,119 @@
-/home/jsmoon/yax_jeju/build/my_custom_pkg/config/params.yaml
+# ═══════════════════════════════════════════════
+#  my_custom_pkg 파라미터 설정 파일
+# ═══════════════════════════════════════════════
+
+waypoint_follower_node:
+  ros__parameters:
+    waypoint_csv: "/home/jsmoon/yax_jeju/waypoints.csv"
+    arrive_dist_m: 1.2
+    speed_forward: 50.0
+    speed_slow: 30.0
+    slow_dist_m: 1.2
+    max_steering: 7
+    k_p: -0.55
+    k_i: -0.01
+    k_d: -0.16
+    steering_alpha: 0.3
+    stop_wp_indices: "[]"
+    pause_wp_indices: "[]"
+    pause_seconds: 0.0
+    reverse_ranges: ""
+
+lane_detection_node:
+  ros__parameters:
+    sub_path_topic: "path_planning_result"
+    sub_lane_topic: "yolov8_lane_info"
+    car_center_x: 320
+    car_center_y: 180
+    lookahead_distance: 40.0
+    kp: 25.0
+    ki: 0.0
+    kd: 1.6
+    smoothing_factor: 0.3
+    max_steer: 7.0  
+    default_speed: 90.0
+    lane_timeout_sec: 1.0
+
+tunnel_nav_node:
+  ros__parameters:
+    sub_lidar_topic: "/scan"
+
+    # 콘 감지 범위 (m)
+    cone_detect_dist_m: 5.0
+    # 스캔 각도 범위 (deg) — 전방 ±30° 제외
+    left_angle_min_deg: 10.0
+    left_angle_max_deg: 110.0
+    right_angle_min_deg: -110.0
+    right_angle_max_deg: -10.0
+
+    # 클러스터링 파라미터
+    cluster_gap_m: 0.25       # 포인트 간 끊김 기준 (m) — 콘 개별 분리
+    cone_min_width_m: 0.0      # 콘 최소 폭 (m) — 1포인트 클러스터 허용
+    cone_max_width_m: 0.5      # 콘 최대 폭 (m)
+    cone_min_points: 1         # 클러스터 최소 포인트 수
+
+    # 콘 구간 진입 기준 (좌/우 각각 최소 콘 개수)
+    min_cones_per_side: 1
+
+    # 조향
+    k_cone: 5.0
+    max_steering: 7.0
+    cone_speed: 50.0
+
+    # 히스테리시스 (연속 감지/미감지 프레임 수)
+    entry_count_threshold: 2
+    exit_count_threshold: 15
+
+cone_camera_node:
+  ros__parameters:
+    sub_image_topic: "/camera/image_raw"
+
+    # BEV 변환 포인트 (소스: 이미지 사다리꼴, 목적지: 직사각형)
+    # [좌하x, 좌하y, 우하x, 우하y, 우상x, 우상y, 좌상x, 좌상y]
+    bev_src_points: [100, 480, 540, 480, 400, 300, 240, 300]
+    bev_dst_points: [150, 400, 250, 400, 250, 0, 150, 0]
+    bev_width: 400
+    bev_height: 400
+
+    # 주황색 콘 검출 — HSV
+    hsv_lower: [5, 100, 100]
+    hsv_upper: [25, 255, 255]
+
+    # 주황색 콘 검출 — LAB
+    lab_lower: [100, 140, 160]
+    lab_upper: [220, 200, 220]
+
+    # 주황색 콘 검출 — RGB
+    rgb_lower: [180, 80, 0]
+    rgb_upper: [255, 180, 80]
+
+    # 컨투어 필터링
+    min_contour_area: 100
+    max_contour_area: 50000
+
+    # ROI 상단 제거 비율 (0.3 = 상위 30% 무시)
+    roi_top_ratio: 0.3
+
+    # 조향
+    k_cone: 5.0
+    max_steering: 7.0
+    cone_speed: 50.0
+
+    # 히스테리시스
+    entry_count_threshold: 2
+    exit_count_threshold: 15
+    min_cones_per_side: 1
+
+obstacle_detect_node:
+  ros__parameters:
+    sub_lidar_topic: "/scan"
+    front_half_angle_deg: 10.0
+    stop_distance_m: 0.7
+    consec_detect_threshold: 3
+    consec_clear_threshold: 3
+
+mission_controller_node:
+  ros__parameters:
+    pub_topic: "topic_control_signal"
+    max_steering: 7
+    max_abs_pwm: 255

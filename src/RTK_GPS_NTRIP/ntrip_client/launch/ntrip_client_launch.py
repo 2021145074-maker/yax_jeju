@@ -29,7 +29,7 @@ def generate_launch_description():
           # 메시지 패키지
           DeclareLaunchArgument('rtcm_message_package',  default_value='rtcm_msgs'),
 
-          DeclareLaunchArgument('nmea_gga_sentence',     default_value='$GPGGA,140328.430,3733.704,N,12656.201,E,1,12,1.0,0.0,M,0.0,M,,*67'),
+          DeclareLaunchArgument('nmea_gga_sentence',     default_value='$GPGGA,000000.00,3318.300,N,12618.960,E,1,12,1.0,0.0,M,0.0,M,,*57'),
 
           # Pass an environment variable to the node
           SetEnvironmentVariable(name='NTRIP_CLIENT_DEBUG', value=LaunchConfiguration('debug')),

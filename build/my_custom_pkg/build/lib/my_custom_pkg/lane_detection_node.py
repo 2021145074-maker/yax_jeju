@@ -172,13 +172,13 @@ class LaneDetectionNode(Node):
             throttle_duration_sec=0.5)
 
     def _find_lookahead_point(self):
-        """lookahead_distance 이상 떨어진 경로점 탐색"""
-        for pt in reversed(self.path_data):
+        """lookahead_distance 이상 떨어진 가장 가까운 경로점 탐색"""
+        for pt in self.path_data:
             dx = pt[0] - self.car_center_x
             dy = self.car_center_y - pt[1]
             if math.hypot(dx, dy) >= self.lookahead_distance:
                 return pt
-        return self.path_data[0]
+        return self.path_data[-1]
 
     def _pub_values(self, steering: float, speed: float):
         s = Float64(); s.data = float(steering)

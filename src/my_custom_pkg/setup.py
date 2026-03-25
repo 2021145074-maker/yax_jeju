@@ -32,6 +32,7 @@ setup(
             'lane_detection_node = my_custom_pkg.lane_detection_node:main',
             'tunnel_nav_node = my_custom_pkg.tunnel_nav_node:main',
             'obstacle_detect_node = my_custom_pkg.obstacle_detect_node:main',
+            'cone_camera_node = my_custom_pkg.cone_camera_node:main',
             'mission_controller_node = my_custom_pkg.mission_controller_node:main',
         ],
     },
