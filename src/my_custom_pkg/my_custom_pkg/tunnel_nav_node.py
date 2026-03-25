@@ -79,6 +79,18 @@ class TunnelNavNode(Node):
         self.cone_speed = float(
             self.declare_parameter('cone_speed', 70.0).value)
 
+        # 경로 생성 파라미터
+        self.lane_half_width_m = float(
+            self.declare_parameter('lane_half_width_m', 0.50).value)  # 콘 통로 반폭
+        self.lookahead_m = float(
+            self.declare_parameter('lookahead_m', 1.5).value)         # 전방 주시 거리
+        self.cone_link_max_dist_m = float(
+            self.declare_parameter('cone_link_max_dist_m', 1.5).value)  # 같은 경계 연결 최대 거리
+        self.curve_gain = float(
+            self.declare_parameter('curve_gain', 1.0).value)            # 1체인 곡률 증폭 (>1: 안쪽으로)
+        self.chain_angle_limit_deg = float(
+            self.declare_parameter('chain_angle_limit_deg', 80.0).value)  # 체인 확장 시 최대 꺾임 각도
+
         # 히스테리시스
         self.entry_count_threshold = int(
             self.declare_parameter('entry_count_threshold', 5).value)
@@ -214,6 +226,117 @@ class TunnelNavNode(Node):
                 cones.append((cx, cy))
         return cones
 
+    # ────────── 콘 → 경계 체인 생성 ──────────
+    def _build_chains(self, cones):
+        """콘 간 거리가 cone_link_max_dist_m 이내면 같은 경계로 연결.
+        좌/우 개념 없이 거리 기반으로 체인을 생성.
+        Returns: list of chains — 각 체인은 [(x, y), ...] (x 오름차순)
+        """
+        if not cones:
+            return []
+
+        max_dist = self.cone_link_max_dist_m
+        assigned = [False] * len(cones)
+        chains = []
+
+        # 가장 가까운(x 최소) 콘부터 시작
+        sorted_indices = sorted(range(len(cones)), key=lambda i: cones[i][0])
+
+        for start_idx in sorted_indices:
+            if assigned[start_idx]:
+                continue
+
+            # 새 체인 시작
+            chain = [cones[start_idx]]
+            assigned[start_idx] = True
+
+            # 체인 확장: 마지막 콘에서 가장 가까운 미할당 콘을 반복 연결
+            # 단, 기존 체인 방향 대비 ±chain_angle_limit_deg 이내만 허용
+            angle_limit_rad = math.radians(self.chain_angle_limit_deg)
+
+            while True:
+                last = chain[-1]
+                best_idx = -1
+                best_dist = max_dist
+
+                # 체인 방향 계산 (콘이 2개 이상이면 마지막 두 콘의 방향)
+                if len(chain) >= 2:
+                    prev = chain[-2]
+                    chain_angle = math.atan2(last[1] - prev[1],
+                                             last[0] - prev[0])
+                else:
+                    chain_angle = None
+
+                for i in sorted_indices:
+                    if assigned[i]:
+                        continue
+                    d = math.hypot(cones[i][0] - last[0],
+                                   cones[i][1] - last[1])
+                    if d < best_dist:
+                        # 각도 제한 검사
+                        if chain_angle is not None:
+                            new_angle = math.atan2(cones[i][1] - last[1],
+                                                   cones[i][0] - last[0])
+                            diff = abs(new_angle - chain_angle)
+                            if diff > math.pi:
+                                diff = 2 * math.pi - diff
+                            if diff > angle_limit_rad:
+                                continue
+                        best_dist = d
+                        best_idx = i
+
+                if best_idx < 0:
+                    break
+
+                chain.append(cones[best_idx])
+                assigned[best_idx] = True
+
+            chain.sort(key=lambda c: c[0])
+            chains.append(chain)
+
+        return chains
+
+    # ────────── 체인 → 중앙선 생성 ──────────
+    def _build_midline(self, chains):
+        """경계 체인들로부터 주행 중앙선을 계산.
+        2개 체인: 두 경계 사이 중앙
+        1개 체인: 체인을 차량 위치(y=0)로 평행이동 → 형태(곡률)로 조향
+        Returns: list of (x, y)
+        """
+        if not chains:
+            return []
+
+        if len(chains) >= 2:
+            # 콘 수가 가장 많은 2개 체인을 경계로 사용
+            chains.sort(key=lambda c: len(c), reverse=True)
+            c1 = chains[0]
+            c2 = chains[1]
+
+            c1_xs = [c[0] for c in c1]
+            c1_ys = [c[1] for c in c1]
+            c2_xs = [c[0] for c in c2]
+            c2_ys = [c[1] for c in c2]
+
+            x_lo = min(min(c1_xs), min(c2_xs))
+            x_hi = max(max(c1_xs), max(c2_xs))
+            sample_xs = np.linspace(x_lo, x_hi, max(len(c1) + len(c2), 5))
+
+            mid_points = []
+            for sx in sample_xs:
+                y1 = float(np.interp(sx, c1_xs, c1_ys))
+                y2 = float(np.interp(sx, c2_xs, c2_ys))
+                mid_points.append((float(sx), (y1 + y2) / 2.0))
+            return mid_points
+
+        # 1개 체인 → 가장 가까운 콘의 y를 빼서 차량 위치로 평행이동
+        # 체인의 형태(곡률)만으로 조향 방향 결정, curve_gain으로 곡률 증폭
+        chain = chains[0]
+        anchor_y = chain[0][1]  # x 최소(가장 가까운) 콘의 y
+
+        mid_points = [(c[0], (c[1] - anchor_y) * self.curve_gain) for c in chain]
+        mid_points.sort(key=lambda p: p[0])
+        return mid_points
+
     # ────────── 제어 루프 ──────────
     def _control_loop(self):
         if self.latest_scan is None:
@@ -229,24 +352,19 @@ class TunnelNavNode(Node):
             f'[Debug] points={len(points)} clusters={len(clusters)} cones={len(cones)}',
             throttle_duration_sec=1.0)
 
-        # 좌/우 분류 (y > 0: 좌측, y < 0: 우측)
-        left_cones = [(x, y) for x, y in cones if y > 0]
-        right_cones = [(x, y) for x, y in cones if y <= 0]
+        # 경계 체인 생성 (거리 기반, 좌/우 구분 없음)
+        cone_chains = self._build_chains(cones)
 
-        # 양쪽 다 있으면 완전 감지, 한쪽만 있으면 부분 감지
-        both_detected = (len(left_cones) >= self.min_cones_per_side
-                         and len(right_cones) >= self.min_cones_per_side)
-        any_detected = (len(left_cones) >= self.min_cones_per_side
-                        or len(right_cones) >= self.min_cones_per_side)
+        # 히스테리시스: 2개 체인이면 진입, 1개라도 있으면 유지
+        has_two = len(cone_chains) >= 2
+        has_any = len(cone_chains) >= 1 and len(cones) >= self.min_cones_per_side
 
-        # 히스테리시스: 양쪽 감지로 진입, 한쪽이라도 있으면 유지
-        if both_detected:
+        if has_two:
             self._enter_cnt += 1
             self._exit_cnt = 0
             if self._enter_cnt >= self.entry_count_threshold:
                 self.is_active = True
-        elif any_detected and self.is_active:
-            # 이미 활성 상태에서 한쪽만 보이면 유지 (exit 카운트 안 올림)
+        elif has_any and self.is_active:
             self._exit_cnt = 0
         else:
             self._exit_cnt += 1
@@ -256,63 +374,47 @@ class TunnelNavNode(Node):
 
         if not self.is_active:
             self._publish_debug_image(points, clusters, cones,
-                                       left_cones, right_cones)
+                                       cone_chains)
             self._pub_values(0.0, 0.0, False)
             return
 
-        # ── 조향 계산 ──
-        left_cones.sort(key=lambda c: c[0])   # x 오름차순 (가까운 순)
-        right_cones.sort(key=lambda c: c[0])
+        # ── 경로 중앙선 기반 조향 ──
+        mid_points = self._build_midline(cone_chains)
 
-        mid_x = None
-        mid_y = None
-
-        if left_cones and right_cones:
-            # 양쪽 다 있으면 중앙점으로 조향
-            lc = left_cones[0]
-            rc = right_cones[0]
-            mid_x = (lc[0] + rc[0]) / 2.0
-            mid_y = (lc[1] + rc[1]) / 2.0
-            steering = self.k_cone * mid_y
-        elif right_cones:
-            # 오른쪽 콘만 보임 → 왼쪽으로 회피 (콘의 y는 음수)
-            rc = right_cones[0]
-            mid_x = rc[0]
-            mid_y = rc[1]
-            steering = self.k_cone * (rc[1] + 0.5)  # 콘에서 0.5m 왼쪽으로
-        elif left_cones:
-            # 왼쪽 콘만 보임 → 오른쪽으로 회피 (콘의 y는 양수)
-            lc = left_cones[0]
-            mid_x = lc[0]
-            mid_y = lc[1]
-            steering = self.k_cone * (lc[1] - 0.5)  # 콘에서 0.5m 오른쪽으로
-        else:
-            # 콘 없음 → 이전 조향 유지
+        if not mid_points:
             self._publish_debug_image(points, clusters, cones,
-                                       left_cones, right_cones)
+                                       cone_chains)
             self._pub_values(self._last_steering, self.cone_speed, True)
             return
 
+        # lookahead 지점 선택
+        target = min(mid_points, key=lambda p: abs(p[0] - self.lookahead_m))
+        mid_x, mid_y = target
+
+        steering = self.k_cone * mid_y
         steering = max(-self.max_steering, min(self.max_steering, steering))
         self._last_steering = steering
 
         self._publish_debug_image(points, clusters, cones,
-                                   left_cones, right_cones, mid_x, mid_y)
+                                   cone_chains, mid_x, mid_y, mid_points)
         self._pub_values(steering, self.cone_speed, True)
         self.get_logger().info(
-            f'[Cone] L={len(left_cones)}개 R={len(right_cones)}개 '
-            f'mid=({mid_x:.2f},{mid_y:.2f}) steer={steering:.2f}',
+            f'[Cone] chains={len(cone_chains)} cones={len(cones)} '
+            f'target=({mid_x:.2f},{mid_y:.2f}) steer={steering:.2f}',
             throttle_duration_sec=0.5)
 
     # ────────── 디버그 이미지 ──────────
     def _publish_debug_image(self, points, clusters, cones,
-                              left_cones, right_cones,
-                              mid_x=None, mid_y=None):
+                              cone_chains=None,
+                              mid_x=None, mid_y=None,
+                              mid_points=None):
         """Bird's-eye view 디버그 이미지 퍼블리시.
         이미지 중앙 하단 = 차량 위치, 위쪽 = 전방"""
         IMG_SIZE = 400
         SCALE = 100  # 1m = 100px
         cx, cy_img = IMG_SIZE // 2, IMG_SIZE - 30  # 차량 위치
+        if cone_chains is None:
+            cone_chains = []
 
         img = np.zeros((IMG_SIZE, IMG_SIZE, 3), dtype=np.uint8)
 
@@ -330,46 +432,59 @@ class TunnelNavNode(Node):
 
         # 전체 LiDAR 포인트 (회색 점)
         for pt in points:
-            px = int(cx + pt[1] * SCALE)  # y → 좌우
-            py = int(cy_img - pt[0] * SCALE)  # x → 전방(위)
+            px = int(cx + pt[1] * SCALE)
+            py = int(cy_img - pt[0] * SCALE)
             if 0 <= px < IMG_SIZE and 0 <= py < IMG_SIZE:
                 cv2.circle(img, (px, py), 2, (100, 100, 100), -1)
 
         # 클러스터 (각각 다른 색)
-        colors = [(0, 255, 255), (255, 0, 255), (255, 255, 0),
-                  (0, 128, 255), (255, 128, 0), (128, 255, 0)]
+        cluster_colors = [(0, 255, 255), (255, 0, 255), (255, 255, 0),
+                          (0, 128, 255), (255, 128, 0), (128, 255, 0)]
         for i, cl in enumerate(clusters):
-            color = colors[i % len(colors)]
+            color = cluster_colors[i % len(cluster_colors)]
             for pt in cl:
                 px = int(cx + pt[1] * SCALE)
                 py = int(cy_img - pt[0] * SCALE)
                 if 0 <= px < IMG_SIZE and 0 <= py < IMG_SIZE:
                     cv2.circle(img, (px, py), 3, color, -1)
 
-        # 좌측 콘 (초록 원)
-        for (cone_x, cone_y) in left_cones:
-            px = int(cx + cone_y * SCALE)
-            py = int(cy_img - cone_x * SCALE)
-            if 0 <= px < IMG_SIZE and 0 <= py < IMG_SIZE:
-                cv2.circle(img, (px, py), 8, (0, 255, 0), 2)
-                cv2.putText(img, 'L', (px - 5, py - 10),
-                            cv2.FONT_HERSHEY_SIMPLEX, 0.4, (0, 255, 0), 1)
+        # 경계 체인별 콘 + 연결선 (체인마다 다른 색)
+        chain_colors = [(0, 255, 0), (0, 0, 255), (255, 255, 0),
+                        (255, 0, 255), (0, 255, 255)]
+        for ci, chain in enumerate(cone_chains):
+            color = chain_colors[ci % len(chain_colors)]
+            # 콘 원
+            for (cone_x, cone_y) in chain:
+                px = int(cx + cone_y * SCALE)
+                py = int(cy_img - cone_x * SCALE)
+                if 0 <= px < IMG_SIZE and 0 <= py < IMG_SIZE:
+                    cv2.circle(img, (px, py), 8, color, 2)
+                    cv2.putText(img, str(ci), (px - 5, py - 10),
+                                cv2.FONT_HERSHEY_SIMPLEX, 0.4, color, 1)
+            # 연결선
+            if len(chain) >= 2:
+                for i in range(len(chain) - 1):
+                    p1 = (int(cx + chain[i][1] * SCALE),
+                          int(cy_img - chain[i][0] * SCALE))
+                    p2 = (int(cx + chain[i+1][1] * SCALE),
+                          int(cy_img - chain[i+1][0] * SCALE))
+                    cv2.line(img, p1, p2, color, 2)
 
-        # 우측 콘 (빨간 원)
-        for (cone_x, cone_y) in right_cones:
-            px = int(cx + cone_y * SCALE)
-            py = int(cy_img - cone_x * SCALE)
-            if 0 <= px < IMG_SIZE and 0 <= py < IMG_SIZE:
-                cv2.circle(img, (px, py), 8, (0, 0, 255), 2)
-                cv2.putText(img, 'R', (px - 5, py - 10),
-                            cv2.FONT_HERSHEY_SIMPLEX, 0.4, (0, 0, 255), 1)
+        # 중앙선 (주황 선)
+        if mid_points and len(mid_points) >= 2:
+            for i in range(len(mid_points) - 1):
+                p1 = (int(cx + mid_points[i][1] * SCALE),
+                      int(cy_img - mid_points[i][0] * SCALE))
+                p2 = (int(cx + mid_points[i+1][1] * SCALE),
+                      int(cy_img - mid_points[i+1][0] * SCALE))
+                cv2.line(img, p1, p2, (0, 165, 255), 2)
 
-        # 중앙점 (파란 X)
+        # 타겟 포인트 (주황 X)
         if mid_x is not None and mid_y is not None:
             px = int(cx + mid_y * SCALE)
             py = int(cy_img - mid_x * SCALE)
             if 0 <= px < IMG_SIZE and 0 <= py < IMG_SIZE:
-                cv2.drawMarker(img, (px, py), (255, 128, 0),
+                cv2.drawMarker(img, (px, py), (0, 165, 255),
                                cv2.MARKER_CROSS, 15, 2)
 
         # 차량 위치 (흰 삼각형)
@@ -380,7 +495,8 @@ class TunnelNavNode(Node):
         # 상태 텍스트
         status = 'ACTIVE' if self.is_active else 'INACTIVE'
         color_txt = (0, 255, 0) if self.is_active else (0, 0, 255)
-        cv2.putText(img, f'{status} L:{len(left_cones)} R:{len(right_cones)}',
+        n_cones = sum(len(c) for c in cone_chains)
+        cv2.putText(img, f'{status} chains:{len(cone_chains)} cones:{n_cones}',
                     (10, 20), cv2.FONT_HERSHEY_SIMPLEX, 0.5, color_txt, 1)
         cv2.putText(img, f'steer:{self._last_steering:.2f}',
                     (10, 40), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 1)
