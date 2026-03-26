@@ -1,0 +1,50 @@
+running develop
+Removing /home/jsmoon/yax_jeju/install/my_custom_pkg/lib/python3.10/site-packages/my-custom-pkg.egg-link (link to .)
+running egg_info
+writing ../../build/my_custom_pkg/my_custom_pkg.egg-info/PKG-INFO
+writing dependency_links to ../../build/my_custom_pkg/my_custom_pkg.egg-info/dependency_links.txt
+writing entry points to ../../build/my_custom_pkg/my_custom_pkg.egg-info/entry_points.txt
+writing requirements to ../../build/my_custom_pkg/my_custom_pkg.egg-info/requires.txt
+writing top-level names to ../../build/my_custom_pkg/my_custom_pkg.egg-info/top_level.txt
+reading manifest file '../../build/my_custom_pkg/my_custom_pkg.egg-info/SOURCES.txt'
+writing manifest file '../../build/my_custom_pkg/my_custom_pkg.egg-info/SOURCES.txt'
+running build
+running build_py
+copying my_custom_pkg/waypoint_follower_node.py -> /home/jsmoon/yax_jeju/build/my_custom_pkg/build/lib/my_custom_pkg
+running install
+running install_lib
+creating /home/jsmoon/yax_jeju/install/my_custom_pkg/lib/python3.10/site-packages/my_custom_pkg
+creating /home/jsmoon/yax_jeju/install/my_custom_pkg/lib/python3.10/site-packages/my_custom_pkg/lib
+copying /home/jsmoon/yax_jeju/build/my_custom_pkg/build/lib/my_custom_pkg/lib/__init__.py -> /home/jsmoon/yax_jeju/install/my_custom_pkg/lib/python3.10/site-packages/my_custom_pkg/lib
+copying /home/jsmoon/yax_jeju/build/my_custom_pkg/build/lib/my_custom_pkg/lib/pid_controller.py -> /home/jsmoon/yax_jeju/install/my_custom_pkg/lib/python3.10/site-packages/my_custom_pkg/lib
+copying /home/jsmoon/yax_jeju/build/my_custom_pkg/build/lib/my_custom_pkg/__init__.py -> /home/jsmoon/yax_jeju/install/my_custom_pkg/lib/python3.10/site-packages/my_custom_pkg
+copying /home/jsmoon/yax_jeju/build/my_custom_pkg/build/lib/my_custom_pkg/waypoint_follower_node.py -> /home/jsmoon/yax_jeju/install/my_custom_pkg/lib/python3.10/site-packages/my_custom_pkg
+copying /home/jsmoon/yax_jeju/build/my_custom_pkg/build/lib/my_custom_pkg/cone_camera_node.py -> /home/jsmoon/yax_jeju/install/my_custom_pkg/lib/python3.10/site-packages/my_custom_pkg
+copying /home/jsmoon/yax_jeju/build/my_custom_pkg/build/lib/my_custom_pkg/lane_detection_node.py -> /home/jsmoon/yax_jeju/install/my_custom_pkg/lib/python3.10/site-packages/my_custom_pkg
+copying /home/jsmoon/yax_jeju/build/my_custom_pkg/build/lib/my_custom_pkg/tunnel_nav_node.py -> /home/jsmoon/yax_jeju/install/my_custom_pkg/lib/python3.10/site-packages/my_custom_pkg
+copying /home/jsmoon/yax_jeju/build/my_custom_pkg/build/lib/my_custom_pkg/obstacle_detect_node.py -> /home/jsmoon/yax_jeju/install/my_custom_pkg/lib/python3.10/site-packages/my_custom_pkg
+copying /home/jsmoon/yax_jeju/build/my_custom_pkg/build/lib/my_custom_pkg/mission_controller_node.py -> /home/jsmoon/yax_jeju/install/my_custom_pkg/lib/python3.10/site-packages/my_custom_pkg
+byte-compiling /home/jsmoon/yax_jeju/install/my_custom_pkg/lib/python3.10/site-packages/my_custom_pkg/lib/__init__.py to __init__.cpython-310.pyc
+byte-compiling /home/jsmoon/yax_jeju/install/my_custom_pkg/lib/python3.10/site-packages/my_custom_pkg/lib/pid_controller.py to pid_controller.cpython-310.pyc
+byte-compiling /home/jsmoon/yax_jeju/install/my_custom_pkg/lib/python3.10/site-packages/my_custom_pkg/__init__.py to __init__.cpython-310.pyc
+byte-compiling /home/jsmoon/yax_jeju/install/my_custom_pkg/lib/python3.10/site-packages/my_custom_pkg/waypoint_follower_node.py to waypoint_follower_node.cpython-310.pyc
+byte-compiling /home/jsmoon/yax_jeju/install/my_custom_pkg/lib/python3.10/site-packages/my_custom_pkg/cone_camera_node.py to cone_camera_node.cpython-310.pyc
+byte-compiling /home/jsmoon/yax_jeju/install/my_custom_pkg/lib/python3.10/site-packages/my_custom_pkg/lane_detection_node.py to lane_detection_node.cpython-310.pyc
+byte-compiling /home/jsmoon/yax_jeju/install/my_custom_pkg/lib/python3.10/site-packages/my_custom_pkg/tunnel_nav_node.py to tunnel_nav_node.cpython-310.pyc
+byte-compiling /home/jsmoon/yax_jeju/install/my_custom_pkg/lib/python3.10/site-packages/my_custom_pkg/obstacle_detect_node.py to obstacle_detect_node.cpython-310.pyc
+byte-compiling /home/jsmoon/yax_jeju/install/my_custom_pkg/lib/python3.10/site-packages/my_custom_pkg/mission_controller_node.py to mission_controller_node.cpython-310.pyc
+running install_data
+copying resource/my_custom_pkg -> /home/jsmoon/yax_jeju/install/my_custom_pkg/share/ament_index/resource_index/packages
+copying package.xml -> /home/jsmoon/yax_jeju/install/my_custom_pkg/share/my_custom_pkg
+copying config/params.yaml -> /home/jsmoon/yax_jeju/install/my_custom_pkg/share/my_custom_pkg/config
+copying launch/mission_launch.py -> /home/jsmoon/yax_jeju/install/my_custom_pkg/share/my_custom_pkg/launch
+running install_egg_info
+Copying ../../build/my_custom_pkg/my_custom_pkg.egg-info to /home/jsmoon/yax_jeju/install/my_custom_pkg/lib/python3.10/site-packages/my_custom_pkg-0.0.1-py3.10.egg-info
+running install_scripts
+Installing cone_camera_node script to /home/jsmoon/yax_jeju/install/my_custom_pkg/lib/my_custom_pkg
+Installing lane_detection_node script to /home/jsmoon/yax_jeju/install/my_custom_pkg/lib/my_custom_pkg
+Installing mission_controller_node script to /home/jsmoon/yax_jeju/install/my_custom_pkg/lib/my_custom_pkg
+Installing obstacle_detect_node script to /home/jsmoon/yax_jeju/install/my_custom_pkg/lib/my_custom_pkg
+Installing tunnel_nav_node script to /home/jsmoon/yax_jeju/install/my_custom_pkg/lib/my_custom_pkg
+Installing waypoint_follower_node script to /home/jsmoon/yax_jeju/install/my_custom_pkg/lib/my_custom_pkg
+writing list of installed files to '/home/jsmoon/yax_jeju/build/my_custom_pkg/install.log'

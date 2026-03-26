@@ -21,6 +21,7 @@ import csv
 import ast
 from typing import Optional, Tuple, List
 
+import numpy as np
 import rclpy
 from rclpy.node import Node
 from rclpy.duration import Duration
@@ -55,6 +56,128 @@ def wrap_pi(a: float) -> float:
     return a
 
 
+class SimpleEKF:
+    """
+    확장 칼만 필터 — 상태: [x, y, yaw, v]
+    예측 모델: 등속 직선 (constant velocity)
+      x' = x + v·cos(yaw)·dt
+      y' = y + v·sin(yaw)·dt
+      yaw' = yaw
+      v' = v
+    관측: GPS → (x, y),  NavPVT → yaw (선택)
+    """
+
+    def __init__(self, q_pos=0.5, q_yaw=0.1, q_vel=1.0,
+                 r_gps=2.0, r_yaw=0.3):
+        # 상태 벡터 [x, y, yaw, v]
+        self.x = np.zeros(4)
+        # 공분산
+        self.P = np.diag([10.0, 10.0, 1.0, 1.0])
+        self.initialized = False
+
+        # 프로세스 노이즈
+        self.q_pos = q_pos
+        self.q_yaw = q_yaw
+        self.q_vel = q_vel
+        # 관측 노이즈
+        self.r_gps = r_gps
+        self.r_yaw = r_yaw
+
+    def init_state(self, x, y, yaw=0.0, v=0.0):
+        self.x = np.array([x, y, yaw, v], dtype=float)
+        self.P = np.diag([1.0, 1.0, 0.5, 0.5])
+        self.initialized = True
+
+    def predict(self, dt: float):
+        if not self.initialized or dt <= 0:
+            return
+        x, y, yaw, v = self.x
+        cos_y, sin_y = math.cos(yaw), math.sin(yaw)
+
+        # 상태 전이
+        self.x[0] = x + v * cos_y * dt
+        self.x[1] = y + v * sin_y * dt
+        # yaw, v 는 유지
+
+        # 자코비안 F
+        F = np.eye(4)
+        F[0, 2] = -v * sin_y * dt
+        F[0, 3] = cos_y * dt
+        F[1, 2] = v * cos_y * dt
+        F[1, 3] = sin_y * dt
+
+        # 프로세스 노이즈 Q
+        Q = np.diag([
+            self.q_pos * dt,
+            self.q_pos * dt,
+            self.q_yaw * dt,
+            self.q_vel * dt,
+        ])
+
+        self.P = F @ self.P @ F.T + Q
+
+    def update_gps(self, gps_x: float, gps_y: float):
+        """GPS 위치 관측 업데이트"""
+        if not self.initialized:
+            return
+        H = np.zeros((2, 4))
+        H[0, 0] = 1.0
+        H[1, 1] = 1.0
+
+        z = np.array([gps_x, gps_y])
+        y = z - H @ self.x  # 잔차
+
+        R = np.diag([self.r_gps, self.r_gps])
+        S = H @ self.P @ H.T + R
+        K = self.P @ H.T @ np.linalg.inv(S)
+
+        self.x = self.x + K @ y
+        self.P = (np.eye(4) - K @ H) @ self.P
+
+    def update_heading(self, yaw_meas: float):
+        """NavPVT 헤딩 관측 업데이트"""
+        if not self.initialized:
+            return
+        H = np.zeros((1, 4))
+        H[0, 2] = 1.0
+
+        residual = wrap_pi(yaw_meas - self.x[2])
+        R = np.array([[self.r_yaw]])
+        S = H @ self.P @ H.T + R
+        K = self.P @ H.T @ np.linalg.inv(S)
+
+        self.x = self.x + (K @ np.array([residual])).flatten()
+        self.x[2] = wrap_pi(self.x[2])
+        self.P = (np.eye(4) - K @ H) @ self.P
+
+    def update_velocity(self, v_meas: float, r_v: float = 0.5):
+        """속도 관측 업데이트 (NavPVT g_speed)"""
+        if not self.initialized:
+            return
+        H = np.zeros((1, 4))
+        H[0, 3] = 1.0
+
+        residual = v_meas - self.x[3]
+        R = np.array([[r_v]])
+        S = H @ self.P @ H.T + R
+        K = self.P @ H.T @ np.linalg.inv(S)
+
+        self.x = self.x + (K @ np.array([residual])).flatten()
+        self.P = (np.eye(4) - K @ H) @ self.P
+
+    @property
+    def pos(self) -> Tuple[float, float]:
+        return (self.x[0], self.x[1])
+
+    @property
+    def yaw(self) -> float:
+        return self.x[2]
+
+    @property
+    def speed(self) -> float:
+        return self.x[3]
+
+
 class WaypointFollowerNode(Node):
     def __init__(self):
         super().__init__('waypoint_follower_node')
@@ -67,15 +190,16 @@ class WaypointFollowerNode(Node):
         self.timer_period = float(
             self.declare_parameter('timer_period', 0.1).value)
         self.arrive_dist_m = float(
-            self.declare_parameter('arrive_dist_m', 2.5).value)
+            self.declare_parameter('arrive_dist_m', 1.5).value)
 
         # 속도
         self.speed_forward = float(
-            self.declare_parameter('speed_forward', 20.0).value)
+            self.declare_parameter('speed_forward', 110.0).value)
         self.speed_slow = float(
-            self.declare_parameter('speed_slow', 12.0).value)
+            self.declare_parameter('speed_slow', 80.0).value)
         self.slow_dist_m = float(
-            self.declare_parameter('slow_dist_m', 5.0).value)
+            self.declare_parameter('slow_dist_m', 2.5).value)
+
 
         # 스티어링 제한
         self.max_steering = int(
@@ -90,23 +214,23 @@ class WaypointFollowerNode(Node):
             self.declare_parameter('min_speed_ms', 0.5).value)
 
         # PID
-        self.k_p = float(self.declare_parameter('k_p', -0.4).value)
-        self.k_i = float(self.declare_parameter('k_i', -0.01).value)
-        self.k_d = float(self.declare_parameter('k_d', -0.12).value)
+        self.k_p = float(self.declare_parameter('k_p', -0.85).value)
+        self.k_i = float(self.declare_parameter('k_i', -0.005).value)
+        self.k_d = float(self.declare_parameter('k_d', -0.1).value)
         self.integral_max = float(
-            self.declare_parameter('integral_max', 1.0).value)
+            self.declare_parameter('integral_max', 0.5).value)
         self.integral_min = float(
-            self.declare_parameter('integral_min', -1.0).value)
+            self.declare_parameter('integral_min', -0.5).value)
         self.max_angular = float(
-            self.declare_parameter('max_angular', 0.5).value)
+            self.declare_parameter('max_angular', 1.0).value)
 
         # 저역통과 / 레이트 리미터
         self.steering_alpha = float(
-            self.declare_parameter('steering_alpha', 0.55).value)
+            self.declare_parameter('steering_alpha', 0.7).value)
         self.steering_step_hyst = int(
-            self.declare_parameter('steering_step_hyst', 2).value)
+            self.declare_parameter('steering_step_hyst', 1).value)
         self.steering_rate_limit = int(
-            self.declare_parameter('steering_rate_limit', 2).value)
+            self.declare_parameter('steering_rate_limit', 4).value)
 
         # 정지/일시정지/후진 구간
         self.stop_wp_indices: List[int] = self._parse_index_list(
@@ -122,6 +246,13 @@ class WaypointFollowerNode(Node):
         self.csv_path = self.declare_parameter(
             'waypoint_csv', '/home/jsmoon/yax_jeju/waypoints.csv').value
 
+        # EKF 파라미터
+        ekf_q_pos = float(self.declare_parameter('ekf_q_pos', 0.3).value)
+        ekf_q_yaw = float(self.declare_parameter('ekf_q_yaw', 0.15).value)
+        ekf_q_vel = float(self.declare_parameter('ekf_q_vel', 0.8).value)
+        ekf_r_gps = float(self.declare_parameter('ekf_r_gps', 0.1).value)
+        ekf_r_yaw = float(self.declare_parameter('ekf_r_yaw', 0.15).value)
+
         # ═══════ 내부 상태 ═══════
         self.integral_error = 0.0
         self.previous_error = 0.0
@@ -133,6 +264,12 @@ class WaypointFollowerNode(Node):
         self.prev_xy: Optional[Tuple[float, float]] = None
         self.curr_yaw: Optional[float] = None
         self.heading_ok = False
+
+        # EKF 인스턴스
+        self.ekf = SimpleEKF(
+            q_pos=ekf_q_pos, q_yaw=ekf_q_yaw, q_vel=ekf_q_vel,
+            r_gps=ekf_r_gps, r_yaw=ekf_r_yaw)
+        self._last_predict_time: Optional[float] = None
         self.last_fix_time = None
         self.goal_xy_local: Optional[Tuple[float, float]] = None
 
@@ -262,8 +399,31 @@ class WaypointFollowerNode(Node):
 
         e0, n0 = self.origin_e0n0
         self.prev_xy = self.curr_xy
-        self.curr_xy = (e - e0, n - n0)
+        raw_xy = (e - e0, n - n0)
         self.last_fix_time = self.get_clock().now()
+
+        # ── EKF 처리 ──
+        now_sec = self.get_clock().now().nanoseconds * 1e-9
+        if not self.ekf.initialized:
+            # 초기 yaw: 이전 위치 있으면 변화량으로 추정
+            init_yaw = 0.0
+            if self.prev_xy is not None:
+                dx = raw_xy[0] - self.prev_xy[0]
+                dy = raw_xy[1] - self.prev_xy[1]
+                if abs(dx) + abs(dy) > 0.02:
+                    init_yaw = math.atan2(dy, dx)
+            self.ekf.init_state(raw_xy[0], raw_xy[1], init_yaw, 0.0)
+            self._last_predict_time = now_sec
+        else:
+            dt = now_sec - self._last_predict_time if self._last_predict_time else 0.1
+            dt = max(0.01, min(dt, 1.0))  # 안전 범위
+            self.ekf.predict(dt)
+            self.ekf.update_gps(raw_xy[0], raw_xy[1])
+            self._last_predict_time = now_sec
+
+        # EKF 출력으로 현재 위치/yaw 갱신
+        self.curr_xy = self.ekf.pos
+        self.curr_yaw = self.ekf.yaw
 
         if not self.did_autostart:
             self._autostart_nearest()
@@ -271,11 +431,13 @@ class WaypointFollowerNode(Node):
         else:
             self._update_goal()
 
+        # fallback heading (EKF가 아직 수렴 안 했을 때)
         if (not self.heading_ok) and self.prev_xy is not None:
             dx = self.curr_xy[0] - self.prev_xy[0]
             dy = self.curr_xy[1] - self.prev_xy[1]
             if abs(dx) + abs(dy) > 0.02:
-                self.curr_yaw = math.atan2(dy, dx)
+                fallback_yaw = math.atan2(dy, dx)
+                self.ekf.update_heading(fallback_yaw)
 
     def _on_navpvt(self, m):
         try:
@@ -290,7 +452,15 @@ class WaypointFollowerNode(Node):
                 yaw_deg -= 360.0
             while yaw_deg < -180.0:
                 yaw_deg += 360.0
-            self.curr_yaw = math.radians(yaw_deg)
+            yaw_rad = math.radians(yaw_deg)
+
+            # EKF에 헤딩 & 속도 관측 업데이트
+            if self.ekf.initialized:
+                self.ekf.update_heading(yaw_rad)
+                self.ekf.update_velocity(g_speed)
+                self.curr_yaw = self.ekf.yaw
+            else:
+                self.curr_yaw = yaw_rad
 
     # ────────────── 웨이포인트 관리 ──────────────
     def _autostart_nearest(self):
@@ -361,6 +531,17 @@ class WaypointFollowerNode(Node):
         if self.goal_xy_local is None or self.curr_xy is None:
             self._pub(0.0, 0.0, 'WAITING_GPS')
             return
+
+        # EKF predict (제어 루프마다 — GPS 사이 보간)
+        if self.ekf.initialized:
+            now_sec = self.get_clock().now().nanoseconds * 1e-9
+            if self._last_predict_time is not None:
+                dt = now_sec - self._last_predict_time
+                dt = max(0.001, min(dt, 0.5))
+                self.ekf.predict(dt)
+            self._last_predict_time = now_sec
+            self.curr_xy = self.ekf.pos
+            self.curr_yaw = self.ekf.yaw
 
         # GPS timeout
         if (self.last_fix_time is not None

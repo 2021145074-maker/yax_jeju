@@ -1,1 +1,0 @@
-/home/jsmoon/yax_jeju/src/my_custom_pkg/setup.py
