@@ -93,22 +93,50 @@ cone_camera_node:
     rgb_lower: [180, 80, 0]
     rgb_upper: [255, 180, 80]
 
-    # 컨투어 필터링
-    min_contour_area: 100
-    max_contour_area: 50000
+    # 마스크/전처리
+    use_clahe: true
+    clahe_clip_limit: 2.0
+    clahe_grid_size: 8
+    mask_use_hsv_fallback: true
+    mask_open_kernel: 3
+    mask_close_kernel: 7
 
     # ROI 상단 제거 비율 (0.3 = 상위 30% 무시)
     roi_top_ratio: 0.3
+
+    # 컨투어 필터링
+    min_contour_area: 120
+    max_contour_area: 50000
+    min_bbox_height_px: 8
+    min_aspect_ratio: 0.7
+    max_aspect_ratio: 6.0
+    min_solidity: 0.55
+
+    # 체인/경로 생성
+    min_chain_points: 2
+    chain_link_max_dist_px: 80.0
+    chain_forward_min_step_px: 3.0
+    chain_angle_limit_deg: 85.0
+    chain_match_max_cost_px: 120.0
+    lane_half_width_px: 35.0
+    lookahead_y_from_bottom_px: 120.0
 
     # 조향
     k_cone: 7.0
     max_steering: 7.0
     cone_speed: 80.0
+    steer_alpha: 0.35
+    max_steer_delta: 1.2
 
-    # 히스테리시스
+    # 활성화/유지 히스테리시스
     entry_count_threshold: 2
     exit_count_threshold: 15
-    min_cones_per_side: 1
+    entry_confidence_threshold: 0.65
+    keep_confidence_threshold: 0.35
+
+    # 경로 소실 시 단기 유지
+    path_hold_frames: 5
+    path_hold_speed_scale: 0.7
 
 obstacle_detect_node:
   ros__parameters:
