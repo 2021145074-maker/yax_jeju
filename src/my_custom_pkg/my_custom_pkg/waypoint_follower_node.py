@@ -196,7 +196,7 @@ class WaypointFollowerNode(Node):
         self.speed_forward = float(
             self.declare_parameter('speed_forward', 110.0).value)
         self.speed_slow = float(
-            self.declare_parameter('speed_slow', 80.0).value)
+            self.declare_parameter('speed_slow', 110.0).value)
         self.slow_dist_m = float(
             self.declare_parameter('slow_dist_m', 2.5).value)
 
@@ -214,9 +214,9 @@ class WaypointFollowerNode(Node):
             self.declare_parameter('min_speed_ms', 0.5).value)
 
         # PID
-        self.k_p = float(self.declare_parameter('k_p', -0.85).value)
+        self.k_p = float(self.declare_parameter('k_p', -0.9).value)
         self.k_i = float(self.declare_parameter('k_i', -0.005).value)
-        self.k_d = float(self.declare_parameter('k_d', -0.1).value)
+        self.k_d = float(self.declare_parameter('k_d', -0.02).value)
         self.integral_max = float(
             self.declare_parameter('integral_max', 0.5).value)
         self.integral_min = float(

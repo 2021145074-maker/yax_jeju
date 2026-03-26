@@ -206,18 +206,18 @@ class MissionControllerNode(Node):
             speed = 0.0                         # 무조건 정지
             source = 'OBSTACLE'
 
-         # ── 우선순위 3: 터널 감지 → 터널 벽 기반 중앙유지 ──
-        elif self.tunnel_active:
-            steering = self.tunnel_steering
-            speed = self.tunnel_speed
-            source = 'TUNNEL'
+        #  # ── 우선순위 3: 터널 감지 → 터널 벽 기반 중앙유지 ──
+        # elif self.tunnel_active:
+        #     steering = self.tunnel_steering
+        #     speed = self.tunnel_speed
+        #     source = 'TUNNEL'
 
 
-        # ── 우선순위 2: 차선 감지 → 차선 추종 ──
-        elif self.lane_active:
-            steering = self.lane_steering
-            speed = self.lane_speed
-            source = 'LANE'
+        # # ── 우선순위 2: 차선 감지 → 차선 추종 ──
+        # elif self.lane_active:
+        #     steering = self.lane_steering
+        #     speed = self.lane_speed
+        #     source = 'LANE'
 
 
         # ── 우선순위 4: GPS 웨이포인트 → 기본 주행 ──

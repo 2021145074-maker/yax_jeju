@@ -7,13 +7,13 @@ waypoint_follower_node:
     waypoint_csv: "/home/jsmoon/yax_jeju/waypoints.csv"
     arrive_dist_m: 1.5
     speed_forward: 110.0
-    speed_slow: 80.0
+    speed_slow: 110.0
     slow_dist_m: 2.5
     max_steering: 7
     # PID — EKF 스무딩된 입력 기준 튜닝
-    k_p: -0.85            # P게인
+    k_p: -0.9             # P게인
     k_i: -0.005           # I게인
-    k_d: -0.1             # D게인
+    k_d: -0.02            # D게인
     steering_alpha: 0.7   # 로우패스
     steering_step_hyst: 1 # 히스테리시스
     steering_rate_limit: 4 # 레이트리밋
